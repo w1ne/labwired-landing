@@ -1003,15 +1003,19 @@ footer.major .actions li {
     }
 
     .vscode-window {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        font-size: 0.75em;
-        /* Smaller font for mobile code */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        font-size: 0.7em;
+        box-sizing: border-box !important;
     }
 
     .vscode-body {
-        padding: 1em;
+        padding: 0.75em;
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        word-break: break-all !important;
     }
 }
 
@@ -1056,6 +1060,8 @@ footer.major .actions li {
 .vscode-body {
     padding: 1.5em;
     line-height: 1.6;
+    overflow-x: auto;
+    /* Allow internal scroll on desktop if needed, though we prefer wrapping on mobile */
 }
 
 .code-line {
