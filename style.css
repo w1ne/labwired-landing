@@ -974,6 +974,47 @@ footer.major .actions li {
     }
 }
 
+/* Mobile Hero Perfection */
+@media screen and (max-width: 480px) {
+    #banner {
+        padding: 4em 1.5em 3em 1.5em;
+        /* Tighter padding */
+    }
+
+    #banner .content {
+        padding: 0;
+        width: 100%;
+    }
+
+    #banner header h2 {
+        font-size: 1.75em;
+        line-height: 1.2;
+        margin-bottom: 1em;
+    }
+
+    #banner header p {
+        font-size: 1rem;
+    }
+
+    .process-content {
+        padding: 1.25em;
+        /* Slightly tighter padding */
+        overflow-x: hidden;
+    }
+
+    .vscode-window {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 0.75em;
+        /* Smaller font for mobile code */
+    }
+
+    .vscode-body {
+        padding: 1em;
+    }
+}
+
 /* VS Code Mockup */
 .vscode-window {
     background: #1e1e1e;
