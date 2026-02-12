@@ -767,7 +767,18 @@ footer.major .actions li {
 /* Mobile */
 @media screen and (max-width: 980px) {
     #banner {
-        padding: 8em 3em 6em 3em;
+        padding: 5em 2em 4em 2em;
+    }
+
+    #banner header h2 {
+        font-size: 2.25em;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 0.75em;
+    }
+
+    #banner header p {
+        font-size: 1.1em;
     }
 
     #banner .content {
@@ -945,6 +956,21 @@ footer.major .actions li {
     .process-content {
         margin-left: 0;
         padding: 1.5em;
+    }
+}
+
+/* Specific overrides for Core Capabilities spacing */
+#four .major h2 {
+    margin-bottom: 0.25em;
+}
+
+#four .major p {
+    margin-bottom: 6rem;
+}
+
+@media screen and (max-width: 736px) {
+    #four .major p {
+        margin-bottom: 3rem;
     }
 }
 
