@@ -525,6 +525,8 @@ footer.major .actions li {
     top: 0;
     z-index: 10001;
     display: none !important;
+    cursor: pointer;
+    z-index: 200000;
 }
 
 @media screen and (max-width: 980px) {
@@ -534,6 +536,7 @@ footer.major .actions li {
 
     .navPanelToggle {
         display: block !important;
+        pointer-events: auto !important;
     }
 
     #nav {
@@ -545,7 +548,7 @@ footer.major .actions li {
         max-width: 80%;
         height: 100%;
         background: #ffffff;
-        z-index: 10000;
+        z-index: 150000;
         padding: 4em 1.5em;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         overflow-y: auto;

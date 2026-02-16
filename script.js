@@ -33,21 +33,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Nav Panel (Mobile)
-    const navPanelToggle = document.querySelector('.navPanelToggle');
+    const navPanelToggles = document.querySelectorAll('.navPanelToggle');
     const nav = document.getElementById('nav');
 
-    if (navPanelToggle && nav) {
-        navPanelToggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            nav.classList.toggle('navPanel-visible');
-            const icon = navPanelToggle.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+    if (navPanelToggles.length > 0 && nav) {
+        navPanelToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                nav.classList.toggle('navPanel-visible');
+
+                // Toggle all icons to stay in sync
+                navPanelToggles.forEach(t => {
+                    const icon = t.querySelector('i');
+                    if (icon) {
+                        if (nav.classList.contains('navPanel-visible')) {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-times');
+                        } else {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
         });
 
         // Close menu when a link is clicked
@@ -55,12 +64,30 @@ document.addEventListener('DOMContentLoaded', function () {
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('navPanel-visible');
-                const icon = navPanelToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+                navPanelToggles.forEach(t => {
+                    const icon = t.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
             });
+        });
+
+        // Close menu on click outside
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('navPanel-visible') &&
+                !nav.contains(e.target) &&
+                !Array.from(navPanelToggles).some(t => t.contains(e.target))) {
+                nav.classList.remove('navPanel-visible');
+                navPanelToggles.forEach(t => {
+                    const icon = t.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
         });
     }
 
