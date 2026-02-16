@@ -194,7 +194,116 @@
     </div>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <!-- <script src="script.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle - Inline Critical Fix
+            const toggle = document.querySelector('.navPanelToggle');
+            const nav = document.getElementById('nav');
+
+            if (toggle && nav) {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Mobile toggle clicked');
+
+                    // Force toggle class
+                    if (nav.classList.contains('navPanel-visible')) {
+                        nav.classList.remove('navPanel-visible');
+                    } else {
+                        nav.classList.add('navPanel-visible');
+                    }
+
+                    // Icon Toggle
+                    const icon = toggle.querySelector('i');
+                    if (icon) {
+                        if (nav.classList.contains('navPanel-visible')) {
+                            icon.classList.remove('fa-bars');
+                            icon.classList.add('fa-times');
+                        } else {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+
+                // Close on link click
+                nav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('navPanel-visible');
+                        const icon = toggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    });
+                });
+
+                // Close on click outside
+                document.addEventListener('click', function (e) {
+                    if (nav.classList.contains('navPanel-visible') &&
+                        !nav.contains(e.target) &&
+                        !toggle.contains(e.target)) {
+                        nav.classList.remove('navPanel-visible');
+                        const icon = toggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            } else {
+                console.error('Mobile menu elements not found:', { toggle, nav });
+            }
+
+            // Other scripts from script.js
+            const scrollyLinks = document.querySelectorAll('.scrolly');
+            scrollyLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 0) {
+                    header.classList.add('alt');
+                } else {
+                    header.classList.remove('alt');
+                }
+            });
+        });
+    </script>
+    <style>
+        /* CRITICAL MOBILE STYLES INLINED */
+        @media screen and (max-width: 980px) {
+            .navPanelToggle {
+                display: block !important;
+                position: absolute !important;
+                right: 0.5em !important;
+                top: 0 !important;
+                z-index: 200000 !important;
+                cursor: pointer !important;
+                width: 4em !important;
+                height: 4em !important;
+            }
+
+            #nav {
+                z-index: 150000 !important;
+                display: none;
+            }
+
+            #nav.navPanel-visible {
+                display: block !important;
+            }
+        }
+    </style>
 
 </body>
 
