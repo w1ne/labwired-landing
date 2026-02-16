@@ -14,6 +14,7 @@
     <title>Documentation - LabWired</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="version" content="v0.12.5-fix-docs-layout" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
@@ -59,16 +60,9 @@
 
                     <section id="platform-documentation">
                         <h3><i class="fas fa-map"></i> Platform Strategy & Planning</h3>
-                        <p>High-level roadmaps, release processes, and strategic vision for the LabWired ecosystem.</p>
+                        <p>Hardware support matrix and ecosystem development roadmaps.</p>
                         <div class="row gtr-150">
-                            <div class="col-6 col-12-medium">
-                                <ul class="alt">
-                                    <li><a
-                                            href="https://github.com/w1ne/labwired-core/blob/main/docs/SUPPORTED_DEVICES.md"><i
-                                                class="fas fa-microchip"></i> Supported Devices</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-12-medium">
+                            <div class="col-12">
                                 <ul class="alt">
                                     <li><a
                                             href="https://github.com/w1ne/labwired-core/blob/main/docs/SUPPORTED_DEVICES.md"><i
@@ -77,6 +71,7 @@
                             </div>
                         </div>
                     </section>
+
 
                     <hr />
 
@@ -131,6 +126,56 @@
                                     Setup</a>
                             </div>
                         </div>
+                    </section>
+
+                    <hr />
+
+                    <section id="architecture">
+                        <h3>Technical Architecture: AIPi Protocol</h3>
+                        <p>The <strong>Agentic Interface for Peripheral Ingestion (AIPi)</strong> is our core protocol.
+                            It allows LLMs and automated verifiers to operate hardware as a programmable service.</p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>State</th>
+                                        <th>Action</th>
+                                        <th>Output Artifact</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Ingested</strong></td>
+                                        <td>Logic extraction from PDF</td>
+                                        <td><code>peripheral.yaml</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Verified</strong></td>
+                                        <td>Cross-check vs constraints</td>
+                                        <td><code>verification_report.md</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Emulated</strong></td>
+                                        <td>Firmware execution</td>
+                                        <td><code>trace.vcd</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <hr />
+
+                    <section id="ai-generation">
+                        <h3>AI Generation & Grounding</h3>
+                        <p>Unlike standard SVD files, LabWired AI models include <strong>grounding metadata</strong>.
+                            This provides machine-readable evidence for every register and transition, eliminating
+                            hallucinations.</p>
+                        <blockquote>
+                            "LabWired is a deterministic back-end. If an agent provides an incorrect system definition,
+                            the simulation fails with a BusPanic. This enforces total reliability for autonomous
+                            agents."
+                        </blockquote>
                     </section>
 
                 </section>
