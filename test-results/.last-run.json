@@ -1,4 +1,11 @@
 {
+<<<<<<< HEAD
   "status": "passed",
   "failedTests": []
+=======
+  "status": "failed",
+  "failedTests": [
+    "adb4973a2e30403a729d-e2dec4ab4ade44693055"
+  ]
+>>>>>>> develop
 }

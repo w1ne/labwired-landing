@@ -6,7 +6,10 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+<<<<<<< HEAD
     console.log('DOM Loaded - Initializing Scripts');
+=======
+>>>>>>> develop
 
     // Scrolly links
     const scrollyLinks = document.querySelectorAll('.scrolly');
@@ -40,11 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Select ALL triggers to handle potential duplicates safely
     const triggers = document.querySelectorAll('.navPanelToggle');
 
+<<<<<<< HEAD
     console.log('Mobile Menu Init:', {
         header: !!header,
         nav: !!nav,
         triggersCount: triggers.length
     });
+=======
+>>>>>>> develop
 
     if (triggers.length > 0 && nav) {
         triggers.forEach(toggle => {
@@ -55,15 +61,23 @@ document.addEventListener('DOMContentLoaded', function () {
             toggle.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
+<<<<<<< HEAD
                 console.log('Mobile toggle clicked');
+=======
+>>>>>>> develop
 
                 // Toggle the class on the nav
                 if (nav.classList.contains('navPanel-visible')) {
                     nav.classList.remove('navPanel-visible');
+<<<<<<< HEAD
                     console.log('Menu closed');
                 } else {
                     nav.classList.add('navPanel-visible');
                     console.log('Menu opened');
+=======
+                } else {
+                    nav.classList.add('navPanel-visible');
+>>>>>>> develop
                 }
 
                 // Update Icons
