@@ -32,9 +32,36 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Nav Panel (Mobile) - Simplified toggle logic
-    // Implementation of a full slide-out panel would require more complex DOM manipulation
-    // For this task, we will ensure responsive stack layout via CSS media queries.
+    // Nav Panel (Mobile)
+    const navPanelToggle = document.querySelector('.navPanelToggle');
+    const nav = document.getElementById('nav');
+
+    if (navPanelToggle && nav) {
+        navPanelToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            nav.classList.toggle('navPanel-visible');
+            // Toggle icon if needed
+            const icon = navPanelToggle.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('navPanel-visible');
+                const icon = navPanelToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    }
 
     // Header Scroll State
     const header = document.getElementById('header');
