@@ -130,51 +130,22 @@
 
                     <hr />
 
-                    <section id="architecture">
-                        <h3>Technical Architecture: AIPi Protocol</h3>
-                        <p>The <strong>Agentic Interface for Peripheral Ingestion (AIPi)</strong> is our core protocol.
-                            It allows LLMs and automated verifiers to operate hardware as a programmable service.</p>
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>State</th>
-                                        <th>Action</th>
-                                        <th>Output Artifact</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Ingested</strong></td>
-                                        <td>Logic extraction from PDF</td>
-                                        <td><code>peripheral.yaml</code></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Verified</strong></td>
-                                        <td>Cross-check vs constraints</td>
-                                        <td><code>verification_report.md</code></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Emulated</strong></td>
-                                        <td>Firmware execution</td>
-                                        <td><code>trace.vcd</code></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
+                    <section id="agent-architecture">
+                        <h3>Agent-First Architecture</h3>
+                        <p>LabWired is designed for <strong>autonomous agents</strong>. Our platform provides a
+                            programmable interface (AIPi) that allows AI to simulate, verify, and operate hardware as a
+                            high-fidelity digital service.</p>
 
-                    <hr />
+                        <h4>AI Generation & Grounding</h4>
+                        <p>Unlike standard static models, LabWired includes <strong>grounding
+                                metadata</strong>—machine-readable evidence for every register and transition. This
+                            ensures that agents operate with 100% deterministic reliability, eliminating hallucinations
+                            in critical firmware pathways.</p>
 
-                    <section id="ai-generation">
-                        <h3>AI Generation & Grounding</h3>
-                        <p>Unlike standard SVD files, LabWired AI models include <strong>grounding metadata</strong>.
-                            This provides machine-readable evidence for every register and transition, eliminating
-                            hallucinations.</p>
                         <blockquote>
-                            "LabWired is a deterministic back-end. If an agent provides an incorrect system definition,
-                            the simulation fails with a BusPanic. This enforces total reliability for autonomous
-                            agents."
+                            "LabWired enforces total reliability. If an agent attempts an invalid hardware operation,
+                            the system fails deterministically. This is the foundation for autonomous hardware
+                            engineering."
                         </blockquote>
                     </section>
 
