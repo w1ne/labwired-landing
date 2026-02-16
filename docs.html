@@ -14,7 +14,7 @@
     <title>Documentation - LabWired</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="version" content="v0.12.5-fix-docs-layout" />
+    <meta name="version" content="v0.12.14-definitive-fix" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
@@ -60,18 +60,32 @@
 
                     <section id="platform-documentation">
                         <h3><i class="fas fa-map"></i> Platform Strategy & Planning</h3>
-                        <p>Hardware support matrix and ecosystem development roadmaps.</p>
+                        <p>High-level roadmaps, release processes, and strategic vision for the LabWired ecosystem.</p>
                         <div class="row gtr-150">
-                            <div class="col-12">
+                            <div class="col-6 col-12-medium">
                                 <ul class="alt">
+                                    <li><a href="https://github.com/w1ne/labwired-core/blob/main/docs/plan.md"><i
+                                                class="fas fa-road"></i> Implementation Plan (Roadmap)</a></li>
+                                    <li><a
+                                            href="https://github.com/w1ne/labwired-core/blob/main/docs/RELEASE_CHECKLIST.md"><i
+                                                class="fas fa-tasks"></i> Release Checklist</a></li>
                                     <li><a
                                             href="https://github.com/w1ne/labwired-core/blob/main/docs/SUPPORTED_DEVICES.md"><i
                                                 class="fas fa-microchip"></i> Supported Devices</a></li>
                                 </ul>
                             </div>
+                            <div class="col-6 col-12-medium">
+                                <ul class="alt">
+                                    <li><a href="https://github.com/w1ne/labwired-core/blob/main/DEMOS.md"><i
+                                                class="fas fa-play-circle"></i> Demos & Examples</a></li>
+                                    <li><a href="https://github.com/w1ne/labwired-core/blob/main/docs/SAFETY.md"><i
+                                                class="fas fa-shield-alt"></i> Safety & Guardrails</a></li>
+                                    <li><a href="https://github.com/w1ne/labwired-core/blob/main/docs/spec/"><i
+                                                class="fas fa-file-contract"></i> Strategic Specs</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </section>
-
 
                     <hr />
 
@@ -163,6 +177,23 @@
                             </table>
                         </div>
                     </section>
+
+                    <hr />
+
+                    <section id="ai-generation">
+                        <h3>AI Generation & Grounding</h3>
+                        <p>Unlike standard static models, LabWired includes <strong>grounding
+                                metadata</strong>—machine-readable evidence for every register and transition. This
+                            ensures that agents operate with 100% deterministic reliability, eliminating hallucinations
+                            in critical firmware pathways.</p>
+                        <blockquote>
+                            "LabWired enforces total reliability. If an agent attempts an invalid hardware operation,
+                            the system fails deterministically. This is the foundation for autonomous hardware
+                            engineering."
+                        </blockquote>
+                    </section>
+
+                </section>
             </div>
         </div>
 
