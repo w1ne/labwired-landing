@@ -544,6 +544,11 @@ footer.major .actions li {
         display: block;
     }
 
+    #nav,
+    #nav * {
+        box-sizing: border-box;
+    }
+
     #nav {
         display: none;
         position: fixed;
