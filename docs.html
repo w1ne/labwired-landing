@@ -25,36 +25,12 @@
         <link rel="stylesheet" href="noscript.css" />
     </noscript>
     <style>
-        .docs-hub-cta {
-            text-align: center;
-            padding: 4em 2em;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            margin: 2em 0 4em 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-        }
-
-        .docs-hub-cta h2 {
-            font-size: 2em;
-            margin-bottom: 0.75em;
-            color: #fff;
-        }
-
-        .docs-hub-cta p {
-            max-width: 600px;
-            margin: 0 auto 2em auto;
-            font-size: 1.1em;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
         .tech-section {
             margin-bottom: 4em;
         }
 
         .tech-section h3 {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             padding-bottom: 0.5em;
             margin-bottom: 1.5em;
             display: flex;
@@ -63,7 +39,7 @@
         }
 
         .tech-section h3 i {
-            color: #2da44e; /* Premium green accent */
+            color: #000000; /* Black icons to match index.html */
         }
     </style>
 </head>
@@ -89,15 +65,17 @@
             <div class="container">
                 <header class="major">
                     <h2>Documentation Hub</h2>
-                    <p>Strategic vision and technical resources for the ecosystem.</p>
+                    <p>Strategic vision and technical reference for the ecosystem.</p>
                 </header>
 
-                <!-- CTA Section -->
-                <div class="docs-hub-cta">
-                    <h2><i class="fa-solid fa-book-open"></i> Technical Wiki & Docs</h2>
-                    <p>Deep dives into implementation details, register maps, and operational guides for all supported hardware.</p>
-                    <a href="https://docs.labwired.com" class="button primary large"><i class="fa-solid fa-external-link"></i> Go to Documentation</a>
-                </div>
+                <!-- Documentation Hub Redirection Box -->
+                <section class="box major">
+                    <h2><i class="fa-solid fa-book-open"></i> Technical Wiki</h2>
+                    <p>Access our comprehensive Documentation Hub for API references, register maps, and operational guides.</p>
+                    <ul class="actions special">
+                        <li><a href="https://docs.labwired.com" class="button primary large"><i class="fa-solid fa-external-link"></i> Go to Documentation Hub</a></li>
+                    </ul>
+                </section>
 
                 <div class="row gtr-150">
                     <div class="col-8 col-12-medium">
@@ -121,10 +99,10 @@
                     </div>
                     <div class="col-4 col-12-medium">
                         <section class="box">
-                            <h4>Quick Links</h4>
+                            <h4>Ecosystem Links</h4>
                             <ul class="alt">
                                 <li><a href="https://github.com/w1ne/labwired-core">Core Repository</a></li>
-                                <li><a href="https://docs.labwired.com/release_strategy/">Release Strategy</a></li>
+                                <li><a href="https://docs.labwired.com/hardware-matrix/">Hardware Support Matrix</a></li>
                                 <li><a href="https://docs.labwired.com/architecture/">Architecture Overview</a></li>
                             </ul>
                         </section>
