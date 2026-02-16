@@ -128,7 +128,41 @@
                         </div>
                     </section>
 
-                </section>
+                    <hr />
+
+                    <section id="architecture">
+                        <h3>Technical Architecture: AIPi Protocol</h3>
+                        <p>The <strong>Agentic Interface for Peripheral Ingestion (AIPi)</strong> is our core protocol.
+                            It allows LLMs and automated verifiers to operate hardware as a programmable service.</p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>State</th>
+                                        <th>Action</th>
+                                        <th>Output Artifact</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Ingested</strong></td>
+                                        <td>Logic extraction from PDF</td>
+                                        <td><code>peripheral.yaml</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Verified</strong></td>
+                                        <td>Cross-check vs constraints</td>
+                                        <td><code>verification_report.md</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Emulated</strong></td>
+                                        <td>Firmware execution</td>
+                                        <td><code>trace.vcd</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
             </div>
         </div>
 
