@@ -1308,3 +1308,50 @@ section h3 i {
         padding: 2.5em 0;
     }
 }
+/* Table */
+.table-wrapper {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    margin-bottom: 2em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+table {
+    margin: 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table tbody tr {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+}
+
+table tbody tr:last-child {
+    border-bottom: none;
+}
+
+table tbody tr:nth-child(2n + 1) {
+    background-color: rgba(0, 0, 0, 0.015);
+}
+
+table td {
+    padding: 1.25em 1em;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+table th {
+    color: #000000;
+    font-size: 0.85em;
+    font-weight: 700;
+    padding: 1em;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.03);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+table thead {
+    border-bottom: solid 2px #000000;
+}
