@@ -1,122 +1,157 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <!--
-    Spectral by HTML5 UP
+    Landed by HTML5 UP (Adapted for LabWired)
     html5up.net | @ajlkn
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-T4J4MDP5GP');
+    </script>
     <title>Documentation - LabWired</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
+        <link rel="stylesheet" href="noscript.css" />
     </noscript>
-    <link rel="icon" type="image/png" href="images/labwired_logo_simplified.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         .docs-hub-cta {
             text-align: center;
-            padding: 3em 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            margin-bottom: 3em;
+            padding: 4em 2em;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            margin: 2em 0 4em 0;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
         }
+
         .docs-hub-cta h2 {
-            margin-bottom: 0.5em;
+            font-size: 2em;
+            margin-bottom: 0.75em;
+            color: #fff;
         }
-        .docs-hub-cta .button.primary {
-            font-size: 1.2em;
-            padding: 0 2em;
-            height: 3.5em;
-            line-height: 3.5em;
+
+        .docs-hub-cta p {
+            max-width: 600px;
+            margin: 0 auto 2em auto;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .tech-section {
+            margin-bottom: 4em;
+        }
+
+        .tech-section h3 {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5em;
+            margin-bottom: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tech-section h3 i {
+            color: #2da44e; /* Premium green accent */
         }
     </style>
 </head>
 
 <body class="is-preload">
-
-    <!-- Page Wrapper -->
     <div id="page-wrapper">
 
         <!-- Header -->
         <header id="header">
-            <h1><a href="index.html">LabWired</a></h1>
+            <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
             <nav id="nav">
                 <ul>
-                    <li class="special">
-                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                        <div id="menu">
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="docs.html">Documentation</a></li>
-                                <li><a href="https://github.com/w1ne/labwired" class="icon brands fa-github"> GitHub</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="#footer">Contact</a></li>
                 </ul>
             </nav>
+            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
         </header>
 
         <!-- Main -->
-        <article id="main">
-            <header>
-                <h2>Documentation</h2>
-                <p>Technical reference and ecosystem resources.</p>
-            </header>
-            <section class="wrapper style5">
-                <div class="inner">
+        <div id="main" class="wrapper style1">
+            <div class="container">
+                <header class="major">
+                    <h2>Documentation Hub</h2>
+                    <p>Strategic vision and technical resources for the ecosystem.</p>
+                </header>
 
-                    <div class="docs-hub-cta">
-                        <h2><i class="fas fa-book-open"></i> LabWired Wiki & Documentation</h2>
-                        <p>Access our comprehensive, live-updated technical documentation, API references, and guides.</p>
-                        <a href="https://docs.labwired.com" class="button primary large"><i class="fas fa-external-link-alt"></i> Go to Documentation Hub</a>
-                    </div>
-
-                    <section id="technical-architecture">
-                        <h3><i class="fas fa-cogs"></i> Technical Architecture</h3>
-                        <p>LabWired is built on a highly modular core designed for bit-accurate hardware simulation. At its heart, the <strong>Emulator Core</strong> handles instruction decoding and execution for various architectures (ARM, RISC-V), while a flexible <strong>Peripheral System</strong> allows for declarative register definitions and complex hardware behavior modeling.</p>
-                        <p>The platform is optimized for <strong>AI Agent interactions</strong>, providing a deterministic environment where agents can interact with simulated hardware through standard protocols like GDB or our custom Agent API.</p>
-                    </section>
-
-                    <hr />
-
-                    <section id="platform-strategy">
-                        <h3><i class="fas fa-map"></i> Platform Strategy</h3>
-                        <p>Our goal is to create the definitive hardware-in-the-loop simulation environment for the AI era. This involves continuous expansion of our supported device matrix, deeper integration with CI/CD pipelines, and providing state-of-the-art debugging tools for both humans and autonomous agents.</p>
-                    </section>
-
+                <!-- CTA Section -->
+                <div class="docs-hub-cta">
+                    <h2><i class="fa-solid fa-book-open"></i> Technical Wiki & Docs</h2>
+                    <p>Deep dives into implementation details, register maps, and operational guides for all supported hardware.</p>
+                    <a href="https://docs.labwired.com" class="button primary large"><i class="fa-solid fa-external-link"></i> Go to Documentation</a>
                 </div>
-            </section>
-        </article>
+
+                <div class="row gtr-150">
+                    <div class="col-8 col-12-medium">
+                        <!-- Technical Architecture -->
+                        <section id="technical-architecture" class="tech-section">
+                            <h3><i class="fa-solid fa-gears"></i> Technical Architecture</h3>
+                            <p>LabWired is built on a modular core designed for <strong>bit-accurate hardware simulation</strong>. Instruction decoding and execution for <strong>ARM (Cortex-M)</strong> and <strong>RISC-V</strong> architectures are handled by a high-performance Rust core.</p>
+                            <p>Our <strong>Peripheral System</strong> allows for declarative behavior modeling, enabling AI agents to interact with virtual hardware through standard protocols such as GDB or our specialized Agent API, ensuring complete determinism in simulation.</p>
+                        </section>
+
+                        <!-- Platform Strategy -->
+                        <section id="platform-strategy" class="tech-section">
+                            <h3><i class="fa-solid fa-map-location-dot"></i> Platform Strategy</h3>
+                            <p>We are creating the definitive <strong>hardware-in-the-loop</strong> simulation environment for autonomous agents. Our strategy focuses on three pillars:</p>
+                            <ul>
+                                <li><strong>Device Diversity:</strong> Rapid ingestion of new peripherals via agentic datasheet analysis.</li>
+                                <li><strong>CI/CD Integration:</strong> Validating firmware on every commit with zero-day hardware availability.</li>
+                                <li><strong>Agentic UX:</strong> Purely programmatic interfaces designed for machine-to-machine interaction.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="box">
+                            <h4>Quick Links</h4>
+                            <ul class="alt">
+                                <li><a href="https://github.com/w1ne/labwired-core">Core Repository</a></li>
+                                <li><a href="https://docs.labwired.com/release_strategy/">Release Strategy</a></li>
+                                <li><a href="https://docs.labwired.com/architecture/">Architecture Overview</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
-                <li><a href="https://github.com/w1ne/labwired" class="icon brands fa-github"><span
+                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
                             class="label">GitHub</span></a></li>
+                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
+                            class="label">Email</span></a></li>
             </ul>
             <ul class="copyright">
-                <li>&copy; LabWired 2026</li>
-                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                <li>&copy; LabWired Inc. All rights reserved.</li>
+                <li><a href="https://labwired.com">LabWired.com</a></li>
+                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
             </ul>
         </footer>
 
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
