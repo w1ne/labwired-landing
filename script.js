@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
         navPanelToggle.addEventListener('click', function (e) {
             e.preventDefault();
             nav.classList.toggle('navPanel-visible');
-            // Toggle icon if needed
             const icon = navPanelToggle.querySelector('i');
             if (icon.classList.contains('fa-bars')) {
                 icon.classList.remove('fa-bars');
@@ -57,8 +56,10 @@ document.addEventListener('DOMContentLoaded', function () {
             link.addEventListener('click', () => {
                 nav.classList.remove('navPanel-visible');
                 const icon = navPanelToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             });
         });
     }

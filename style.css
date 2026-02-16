@@ -510,9 +510,8 @@ footer.major .actions li {
     opacity: 0.6;
 }
 
-/* Mobile Navigation */
+/* Mobile Navigation Toggle */
 .navPanelToggle {
-    display: none;
     text-decoration: none;
     height: 4em;
     width: 4em;
@@ -525,6 +524,7 @@ footer.major .actions li {
     right: 0.5em;
     top: 0;
     z-index: 10001;
+    display: none !important;
 }
 
 @media screen and (max-width: 980px) {
@@ -533,7 +533,7 @@ footer.major .actions li {
     }
 
     .navPanelToggle {
-        display: block;
+        display: block !important;
     }
 
     #nav {
