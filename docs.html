@@ -14,14 +14,7 @@
     <title>Documentation - LabWired</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<<<<<<< HEAD
-    <<<<<<< HEAD <meta name="version" content="v0.12.5-fix-docs-layout" />
-    =======
-    <meta name="version" content="v0.12.3-fix-mobile-ui" />
-    >>>>>>> origin/main
-=======
     <meta name="version" content="v0.12.5-fix-docs-layout" />
->>>>>>> develop
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
@@ -67,11 +60,7 @@
 
                     <section id="platform-documentation">
                         <h3><i class="fas fa-map"></i> Platform Strategy & Planning</h3>
-<<<<<<< HEAD
-                        <p>High-level roadmaps, release processes, and strategic vision for the LabWired ecosystem.</p>
-=======
                         <p>Hardware support matrix and ecosystem development roadmaps.</p>
->>>>>>> develop
                         <div class="row gtr-150">
                             <div class="col-12">
                                 <ul class="alt">
@@ -79,8 +68,6 @@
                                             href="https://github.com/w1ne/labwired-core/blob/main/docs/SUPPORTED_DEVICES.md"><i
                                                 class="fas fa-microchip"></i> Supported Devices</a></li>
                                 </ul>
-<<<<<<< HEAD
-=======
                             </div>
                         </div>
                     </section>
@@ -137,141 +124,64 @@
                                 <p>Automate hardware validation in your CI/CD pipelines.</p>
                                 <a href="https://docs.labwired.com/ci_integration/" class="button small">View CI
                                     Setup</a>
->>>>>>> develop
                             </div>
                         </div>
                     </section>
 
                     <hr />
 
-                    <section id="technical-architecture">
-                        <h3><i class="fas fa-cogs"></i> Technical Reference</h3>
-                        <p>Deep dives into the emulator core, CLI tools, and architecture internals.</p>
-                        <div class="row gtr-150">
-                            <div class="col-6 col-12-medium">
-                                <h4>Core Emulator</h4>
-                                <ul class="alt">
-                                    <li><a href="https://docs.labwired.com/architecture/">Architecture Overview</a></li>
-                                    <li><a href="https://docs.labwired.com/cli_reference/">CLI Reference</a></li>
-                                    <li><a href="https://docs.labwired.com/configuration_reference/">Config Schema</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-12-medium">
-                                <h4>Peripheral Development</h4>
-                                <ul class="alt">
-                                    <li><a href="https://docs.labwired.com/peripheral_development/">Building
-                                            Peripherals</a></li>
-                                    <li><a href="https://docs.labwired.com/declarative_registers/">Declarative
-                                            Registers</a></li>
-                                    <li><a href="https://docs.labwired.com/board_onboarding_playbook/">Board
-                                            Onboarding</a></li>
-                                </ul>
-                            </div>
+                    <section id="architecture">
+                        <h3>Technical Architecture: AIPi Protocol</h3>
+                        <p>The <strong>Agentic Interface for Peripheral Ingestion (AIPi)</strong> is our core protocol.
+                            It allows LLMs and automated verifiers to operate hardware as a programmable service.</p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>State</th>
+                                        <th>Action</th>
+                                        <th>Output Artifact</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Ingested</strong></td>
+                                        <td>Logic extraction from PDF</td>
+                                        <td><code>peripheral.yaml</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Verified</strong></td>
+                                        <td>Cross-check vs constraints</td>
+                                        <td><code>verification_report.md</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Emulated</strong></td>
+                                        <td>Firmware execution</td>
+                                        <td><code>trace.vcd</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </section>
 
                     <hr />
 
-                    <section id="developer-guides">
-                        <h3><i class="fas fa-terminal"></i> Developer Guides</h3>
-                        <p>Step-by-step instructions for getting started and debugging.</p>
-                        <div class="row gtr-150">
-                            <div class="col-4 col-12-medium">
-                                <h4>Getting Started</h4>
-                                <p>Set up your environment and run your first firmware emulation.</p>
-                                <a href="https://docs.labwired.com/getting_started_firmware/" class="button small">Read
-                                    Guide</a>
-                            </div>
-                            <div class="col-4 col-12-medium">
-                                <h4>Debugging</h4>
-                                <p>Comprehensive guides for GDB and VS Code integration.</p>
-                                <a href="https://docs.labwired.com/debugging/" class="button small">Learn Debugging</a>
-                            </div>
-                            <div class="col-4 col-12-medium">
-                                <h4>CI Integration</h4>
-                                <p>Automate hardware validation in your CI/CD pipelines.</p>
-                                <a href="https://docs.labwired.com/ci_integration/" class="button small">View CI
-                                    Setup</a>
-                            </div>
-                        </div>
+                    <section id="ai-generation">
+                        <h3>AI Generation & Grounding</h3>
+                        <p>Unlike standard SVD files, LabWired AI models include <strong>grounding metadata</strong>.
+                            This provides machine-readable evidence for every register and transition, eliminating
+                            hallucinations.</p>
+                        <blockquote>
+                            "LabWired is a deterministic back-end. If an agent provides an incorrect system definition,
+                            the simulation fails with a BusPanic. This enforces total reliability for autonomous
+                            agents."
+                        </blockquote>
                     </section>
 
-                    <hr />
-
+                </section>
             </div>
-            </section>
-
-<<<<<<< HEAD
-            <hr />
-
-            <section id="architecture">
-                <h3>Technical Architecture: AIPi Protocol</h3>
-                <p>The <strong>Agentic Interface for Peripheral Ingestion (AIPi)</strong> is our core protocol.
-                    It allows LLMs and automated verifiers to operate hardware as a programmable service.</p>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>State</th>
-                                <th>Action</th>
-                                <th>Output Artifact</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Ingested</strong></td>
-                                <td>Logic extraction from PDF</td>
-                                <td><code>peripheral.yaml</code></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Verified</strong></td>
-                                <td>Cross-check vs constraints</td>
-                                <td><code>verification_report.md</code></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Emulated</strong></td>
-                                <td>Firmware execution</td>
-                                <td><code>trace.vcd</code></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <hr />
-
-            <section id="ai-generation">
-                <h3>AI Generation & Grounding</h3>
-                <p>Unlike standard SVD files, LabWired AI models include <strong>grounding metadata</strong>.
-                    This provides machine-readable evidence for every register and transition, eliminating
-                    hallucinations.</p>
-                <blockquote>
-                    "LabWired is a deterministic back-end. If an agent provides an incorrect system definition,
-                    the simulation fails with a BusPanic. This enforces total reliability for autonomous
-                    agents."
-                </blockquote>
-            </section>
-
-            </section>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <ul class="icons">
-            <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
-                        class="label">GitHub</span></a></li>
-            <li><a href="mailto:andrii@labwired.com" class="icon solid alt fa-envelope"><span
-                        class="label">Email</span></a></li>
-        </ul>
-        <ul class="copyright">
-            <li>&copy; LabWired Inc. All rights reserved.</li>
-            <li><a href="https://labwired.com">LabWired.com</a></li>
-            <li><a href="https://docs.labwired.com">Technical Docs</a></li>
-        </ul>
-    </footer>
-=======
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
@@ -286,7 +196,6 @@
                 <li><a href="https://docs.labwired.com">Technical Docs</a></li>
             </ul>
         </footer>
->>>>>>> develop
 
     </div>
 
