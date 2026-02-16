@@ -1196,5 +1196,36 @@ section h3 i {
 #platform-documentation,
 #technical-architecture,
 #developer-guides {
+    padding: 3.5em 0;
+    margin-bottom: 2em;
+    text-align: left;
+}
+
+#platform-documentation p,
+#technical-architecture p,
+#developer-guides p {
+    margin-bottom: 2.5em;
+}
+
+.gtr-150 {
+    margin-top: -3em !important;
+}
+
+.gtr-150>* {
+    padding-top: 3em !important;
+}
+
+@media screen and (max-width: 980px) {
+
+    #platform-documentation,
+    #technical-architecture,
+    #developer-guides {
+        padding: 2.5em 0;
+    }
+}
+
+#platform-documentation,
+#technical-architecture,
+#developer-guides {
     text-align: left;
 }
