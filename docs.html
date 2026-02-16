@@ -1,4 +1,9 @@
 <!DOCTYPE HTML>
+<!--
+    Landed by HTML5 UP (Adapted for LabWired)
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 
 <head>
@@ -14,18 +19,56 @@
     <title>Documentation - LabWired</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="version" content="v0.12.16-definitive-cleanup" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Outfit:wght@700&family=Roboto+Mono&display=swap"
-        rel="stylesheet">
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
+        <link rel="stylesheet" href="noscript.css" />
     </noscript>
+    <style>
+        .docs-hub-cta {
+            text-align: center;
+            padding: 4em 2em;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            margin: 2em 0 4em 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .docs-hub-cta h2 {
+            font-size: 2em;
+            margin-bottom: 0.75em;
+            color: #fff;
+        }
+
+        .docs-hub-cta p {
+            max-width: 600px;
+            margin: 0 auto 2em auto;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .tech-section {
+            margin-bottom: 4em;
+        }
+
+        .tech-section h3 {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5em;
+            margin-bottom: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tech-section h3 i {
+            color: #2da44e; /* Premium green accent */
+        }
+    </style>
 </head>
 
-<body class="is-preload landing">
+<body class="is-preload">
     <div id="page-wrapper">
 
         <!-- Header -->
@@ -33,9 +76,9 @@
             <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
             <nav id="nav">
                 <ul>
-                    <li><a href="index.html#four">Features</a></li>
-                    <li><a href="docs.html" class="active">Docs</a></li>
-                    <li><a href="index.html#footer">Contact</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="#footer">Contact</a></li>
                 </ul>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
@@ -45,156 +88,57 @@
         <div id="main" class="wrapper style1">
             <div class="container">
                 <header class="major">
-                    <h2>Documentation</h2>
-                    <p>The programmable hardware back-end for the AI era.</p>
+                    <h2>Documentation Hub</h2>
+                    <p>Strategic vision and technical resources for the ecosystem.</p>
                 </header>
 
-                <!-- Content -->
-                <section id="content">
-                    <hr />
+                <!-- CTA Section -->
+                <div class="docs-hub-cta">
+                    <h2><i class="fa-solid fa-book-open"></i> Technical Wiki & Docs</h2>
+                    <p>Deep dives into implementation details, register maps, and operational guides for all supported hardware.</p>
+                    <a href="https://docs.labwired.com" class="button primary large"><i class="fa-solid fa-external-link"></i> Go to Documentation</a>
+                </div>
 
-                    <section id="platform-documentation">
-                        <h3><i class="fas fa-map"></i> Platform Strategy & Planning</h3>
-                        <p>High-level roadmaps, release processes, and strategic vision for the LabWired ecosystem.</p>
-                        <div class="row gtr-150">
-                            <div class="col-6 col-12-medium">
-                                <ul class="alt">
+                <div class="row gtr-150">
+                    <div class="col-8 col-12-medium">
+                        <!-- Technical Architecture -->
+                        <section id="technical-architecture" class="tech-section">
+                            <h3><i class="fa-solid fa-gears"></i> Technical Architecture</h3>
+                            <p>LabWired is built on a modular core designed for <strong>bit-accurate hardware simulation</strong>. Instruction decoding and execution for <strong>ARM (Cortex-M)</strong> and <strong>RISC-V</strong> architectures are handled by a high-performance Rust core.</p>
+                            <p>Our <strong>Peripheral System</strong> allows for declarative behavior modeling, enabling AI agents to interact with virtual hardware through standard protocols such as GDB or our specialized Agent API, ensuring complete determinism in simulation.</p>
+                        </section>
 
-                                    <li><a href="https://docs.labwired.com/supported_devices/"><i
-                                                class="fas fa-microchip"></i> Supported Devices</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-12-medium">
-                                <ul class="alt">
-                                    <li><a href="https://docs.labwired.com/demos/"><i class="fas fa-play-circle"></i>
-                                            Demos & Examples</a></li>
-                                    <li><a href="https://docs.labwired.com/safety/"><i class="fas fa-shield-alt"></i>
-                                            Safety & Guardrails</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    <hr />
-
-                    <section id="technical-architecture">
-                        <h3><i class="fas fa-cogs"></i> Technical Reference</h3>
-                        <p>Deep dives into the emulator core, CLI tools, and architecture internals.</p>
-                        <div class="row gtr-150">
-                            <div class="col-6 col-12-medium">
-                                <h4>Core Emulator</h4>
-                                <ul class="alt">
-                                    <li><a href="https://docs.labwired.com/architecture/">Architecture
-                                            Overview</a></li>
-                                    <li><a href="https://docs.labwired.com/cli_reference/">CLI
-                                            Reference</a></li>
-                                    <li><a href="https://docs.labwired.com/configuration_reference/">Config
-                                            Schema</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-12-medium">
-                                <h4>Peripheral Development</h4>
-                                <ul class="alt">
-                                    <li><a href="https://docs.labwired.com/peripheral_development/">Building
-                                            Peripherals (Plugins)</a></li>
-                                    <li><a href="https://docs.labwired.com/declarative_registers/">Declarative
-                                            Registers (YAML)</a></li>
-                                    <li><a href="https://docs.labwired.com/board_onboarding_playbook/">Board
-                                            Onboarding Playbook</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    <hr />
-
-                    <section id="developer-guides">
-                        <h3><i class="fas fa-terminal"></i> Developer Guides</h3>
-                        <p>Step-by-step instructions for getting started and debugging.</p>
-                        <div class="row gtr-150">
-                            <div class="col-4 col-12-medium">
-                                <h4>Getting Started</h4>
-                                <p>Set up your environment and run your first firmware emulation.</p>
-                                <a href="https://docs.labwired.com/getting_started_firmware/" class="button">Read
-                                    Guide</a>
-                            </div>
-                            <div class="col-4 col-12-medium">
-                                <h4>Debugging</h4>
-                                <p>Comprehensive guides for GDB and VS Code integration.</p>
-                                <a href="https://docs.labwired.com/debugging/" class="button">Learn Debugging</a>
-                            </div>
-                            <div class="col-4 col-12-medium">
-                                <h4>CI Integration</h4>
-                                <p>Automate hardware validation in your CI/CD pipelines.</p>
-                                <a href="https://docs.labwired.com/ci_integration/" class="button">View CI
-                                    Setup</a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <hr />
-
-                    <section id="architecture">
-                        <h3>Technical Architecture: AIPi Protocol</h3>
-                        <p>The <strong>Agentic Interface for Peripheral Ingestion (AIPi)</strong> is our core protocol.
-                            It allows LLMs and automated verifiers to operate hardware as a programmable service.</p>
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>State</th>
-                                        <th>Action</th>
-                                        <th>Output Artifact</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Ingested</strong></td>
-                                        <td>Logic extraction from PDF</td>
-                                        <td><code>peripheral.yaml</code></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Verified</strong></td>
-                                        <td>Cross-check vs constraints</td>
-                                        <td><code>verification_report.md</code></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Emulated</strong></td>
-                                        <td>Firmware execution</td>
-                                        <td><code>trace.vcd</code></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-
-                    <hr />
-
-                    <section id="ai-generation">
-                        <h3>AI Generation & Grounding</h3>
-                        <p>Unlike standard static models, LabWired includes <strong>grounding
-                                metadata</strong>—machine-readable evidence for every register and transition. This
-                            ensures that agents operate with 100% deterministic reliability, eliminating hallucinations
-                            in critical firmware pathways.</p>
-                        <blockquote>
-                            "LabWired enforces total reliability. If an agent attempts an invalid hardware operation,
-                            the system fails deterministically. This is the foundation for autonomous hardware
-                            engineering."
-                        </blockquote>
-                    </section>
-
-                </section>
+                        <!-- Platform Strategy -->
+                        <section id="platform-strategy" class="tech-section">
+                            <h3><i class="fa-solid fa-map-location-dot"></i> Platform Strategy</h3>
+                            <p>We are creating the definitive <strong>hardware-in-the-loop</strong> simulation environment for autonomous agents. Our strategy focuses on three pillars:</p>
+                            <ul>
+                                <li><strong>Device Diversity:</strong> Rapid ingestion of new peripherals via agentic datasheet analysis.</li>
+                                <li><strong>CI/CD Integration:</strong> Validating firmware on every commit with zero-day hardware availability.</li>
+                                <li><strong>Agentic UX:</strong> Purely programmatic interfaces designed for machine-to-machine interaction.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="box">
+                            <h4>Quick Links</h4>
+                            <ul class="alt">
+                                <li><a href="https://github.com/w1ne/labwired-core">Core Repository</a></li>
+                                <li><a href="https://docs.labwired.com/release_strategy/">Release Strategy</a></li>
+                                <li><a href="https://docs.labwired.com/architecture/">Architecture Overview</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
-                <li><a href="https://github.com/w1ne/labwired" class="icon brands alt fa-github"><span
+                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
                             class="label">GitHub</span></a></li>
-                <li><a href="mailto:andrii@labwired.com" class="icon solid alt fa-envelope"><span
+                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
                             class="label">Email</span></a></li>
             </ul>
             <ul class="copyright">
