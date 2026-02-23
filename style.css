@@ -639,7 +639,9 @@ footer.major .actions li {
 }
 
 #banner .image {
-    display: none;
+    display: block;
+    width: 100%;
+    margin-top: 2em;
 }
 
 .goto-next {
