@@ -3,16 +3,16 @@
 
 <head>
     <!-- COMPONENT: analytics -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-T4J4MDP5GP');
-</script>
-<!-- END COMPONENT: analytics -->
+        gtag('config', 'G-T4J4MDP5GP');
+    </script>
+    <!-- END COMPONENT: analytics -->
     <title>LabWired vs QEMU: Modernizing Firmware Simulation</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -51,19 +51,19 @@
 <body class="is-preload">
     <div id="page-wrapper">
         <!-- COMPONENT: header -->
-<header id="header">
-    <h1 id="logo"><a href="../index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
-    <nav id="nav">
-        <ul>
-            <li><a href="../index.html#four">Features</a></li>
-            <li><a href="../index.html#resources">Resources</a></li>
-            <li><a href="../docs.html">Docs</a></li>
-            <li><a href="#footer">Contact</a></li>
-        </ul>
-    </nav>
-    <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
-</header>
-<!-- END COMPONENT: header -->
+        <header id="header">
+            <h1 id="logo"><a href="../index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html#four">Features</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                    <li><a href="../docs.html">Docs</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+        </header>
+        <!-- END COMPONENT: header -->
 
         <section id="main" class="wrapper style1">
             <div class="container">
@@ -89,7 +89,7 @@
                             (RCC, GPIO, DMA, UART), not just CPU instruction emulation.</li>
                         <li><strong>Performance vs Precision</strong>: While QEMU is fast via binary translation, it
                             sacrifices cycle-level precision. LabWired offers a strictly deterministic lockstep engine
-                            that models the entire system state accurately—while still achieving <strong>~46 MIPS
+                            that models the entire system state accurately—while still achieving <strong>~46.9 MIPS
                                 throughput</strong> on single-core workloads like our bare-metal Cortex-M3 benchmarks.
                         </li>
                         <li><strong>Trace Replayability</strong>: LabWired allows you to capture a failure and
@@ -143,20 +143,21 @@
         </section>
 
         <!-- COMPONENT: footer -->
-<footer id="footer">
-    <ul class="icons">
-        <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
-                    class="label">GitHub</span></a></li>
-        <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
-        </li>
-    </ul>
-    <ul class="copyright">
-        <li>&copy; LabWired Inc. All rights reserved.</li>
-        <li><a href="https://labwired.com">LabWired.com</a></li>
-        <li><a href="https://docs.labwired.com">Technical Docs</a></li>
-    </ul>
-</footer>
-<!-- END COMPONENT: footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                            class="label">GitHub</span></a></li>
+                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
+                            class="label">Email</span></a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; LabWired Inc. All rights reserved.</li>
+                <li><a href="https://labwired.com">LabWired.com</a></li>
+                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+            </ul>
+        </footer>
+        <!-- END COMPONENT: footer -->
     </div>
     <script src="../script.js"></script>
 </body>
