@@ -7,15 +7,17 @@
 <html>
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <!-- COMPONENT: analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        gtag('config', 'G-T4J4MDP5GP');
-    </script>
+    gtag('config', 'G-T4J4MDP5GP');
+</script>
+<!-- END COMPONENT: analytics -->
     <title>Documentation - LabWired</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -39,7 +41,8 @@
         }
 
         .tech-section h3 i {
-            color: #000000; /* Black icons to match index.html */
+            color: #000000;
+            /* Black icons to match index.html */
         }
     </style>
 </head>
@@ -48,17 +51,20 @@
     <div id="page-wrapper">
 
         <!-- Header -->
-        <header id="header">
-            <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="docs.html">Docs</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
-        </header>
+        <!-- COMPONENT: header -->
+<header id="header">
+    <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html#four">Features</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+</header>
+<!-- END COMPONENT: header -->
 
         <!-- Main -->
         <div id="main" class="wrapper style1">
@@ -71,9 +77,11 @@
                 <!-- Documentation Hub Redirection Box -->
                 <section class="box major">
                     <h2><i class="fa-solid fa-book-open"></i> Technical Wiki</h2>
-                    <p>Access our comprehensive Documentation Hub for API references, register maps, and operational guides.</p>
+                    <p>Access our comprehensive Documentation Hub for API references, register maps, and operational
+                        guides.</p>
                     <ul class="actions special">
-                        <li><a href="https://docs.labwired.com" class="button primary large"><i class="fa-solid fa-external-link"></i> Go to Documentation Hub</a></li>
+                        <li><a href="https://docs.labwired.com" class="button primary large"><i
+                                    class="fa-solid fa-external-link"></i> Go to Documentation Hub</a></li>
                     </ul>
                 </section>
 
@@ -82,18 +90,27 @@
                         <!-- Technical Architecture -->
                         <section id="technical-architecture" class="tech-section">
                             <h3><i class="fa-solid fa-gears"></i> Technical Architecture</h3>
-                            <p>LabWired is built on a modular core designed for <strong>bit-accurate hardware simulation</strong>. Instruction decoding and execution for <strong>ARM (Cortex-M)</strong> and <strong>RISC-V</strong> architectures are handled by a high-performance Rust core.</p>
-                            <p>Our <strong>Peripheral System</strong> allows for declarative behavior modeling, enabling AI agents to interact with virtual hardware through standard protocols such as GDB or our specialized Agent API, ensuring complete determinism in simulation.</p>
+                            <p>LabWired is built on a modular core designed for <strong>bit-accurate hardware
+                                    simulation</strong>. Instruction decoding and execution for <strong>ARM
+                                    (Cortex-M)</strong> and <strong>RISC-V</strong> architectures are handled by a
+                                high-performance Rust core.</p>
+                            <p>Our <strong>Peripheral System</strong> allows for declarative behavior modeling, enabling
+                                AI agents to interact with virtual hardware through standard protocols such as GDB or
+                                our specialized Agent API, ensuring complete determinism in simulation.</p>
                         </section>
 
                         <!-- Platform Strategy -->
                         <section id="platform-strategy" class="tech-section">
                             <h3><i class="fa-solid fa-map-location-dot"></i> Platform Strategy</h3>
-                            <p>We are creating the definitive <strong>hardware-in-the-loop</strong> simulation environment for autonomous agents. Our strategy focuses on three pillars:</p>
+                            <p>We are creating the definitive <strong>hardware-in-the-loop</strong> simulation
+                                environment for autonomous agents. Our strategy focuses on three pillars:</p>
                             <ul>
-                                <li><strong>Device Diversity:</strong> Rapid ingestion of new peripherals via agentic datasheet analysis.</li>
-                                <li><strong>CI/CD Integration:</strong> Validating firmware on every commit with zero-day hardware availability.</li>
-                                <li><strong>Agentic UX:</strong> Purely programmatic interfaces designed for machine-to-machine interaction.</li>
+                                <li><strong>Device Diversity:</strong> Rapid ingestion of new peripherals via agentic
+                                    datasheet analysis.</li>
+                                <li><strong>CI/CD Integration:</strong> Validating firmware on every commit with
+                                    zero-day hardware availability.</li>
+                                <li><strong>Agentic UX:</strong> Purely programmatic interfaces designed for
+                                    machine-to-machine interaction.</li>
                             </ul>
                         </section>
                     </div>
@@ -102,7 +119,8 @@
                             <h4>Ecosystem Links</h4>
                             <ul class="alt">
                                 <li><a href="https://github.com/w1ne/labwired-core">Core Repository</a></li>
-                                <li><a href="https://docs.labwired.com/hardware-matrix/">Hardware Support Matrix</a></li>
+                                <li><a href="https://docs.labwired.com/hardware-matrix/">Hardware Support Matrix</a>
+                                </li>
                                 <li><a href="https://docs.labwired.com/architecture/">Architecture Overview</a></li>
                             </ul>
                         </section>
@@ -112,19 +130,21 @@
         </div>
 
         <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
-                            class="label">GitHub</span></a></li>
-                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
-                            class="label">Email</span></a></li>
-            </ul>
-            <ul class="copyright">
-                <li>&copy; LabWired Inc. All rights reserved.</li>
-                <li><a href="https://labwired.com">LabWired.com</a></li>
-                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
-            </ul>
-        </footer>
+        <!-- COMPONENT: footer -->
+<footer id="footer">
+    <ul class="icons">
+        <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                    class="label">GitHub</span></a></li>
+        <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
+        </li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; LabWired Inc. All rights reserved.</li>
+        <li><a href="https://labwired.com">LabWired.com</a></li>
+        <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+    </ul>
+</footer>
+<!-- END COMPONENT: footer -->
 
     </div>
 

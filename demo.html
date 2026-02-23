@@ -2,15 +2,17 @@
 <html>
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <!-- COMPONENT: analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        gtag('config', 'G-T4J4MDP5GP');
-    </script>
+    gtag('config', 'G-T4J4MDP5GP');
+</script>
+<!-- END COMPONENT: analytics -->
     <title>LabWired - Live Demo</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -171,16 +173,20 @@
     <div id="page-wrapper">
 
         <!-- Header -->
-        <header id="header">
-            <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li><a href="index.html#four">Features</a></li>
-                    <li><a href="index.html#footer">Docs</a></li>
-                    <li><a href="index.html#footer">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        <!-- COMPONENT: header -->
+<header id="header">
+    <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html#four">Features</a></li>
+            <li><a href="index.html#resources">Resources</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+</header>
+<!-- END COMPONENT: header -->
 
         <!-- Main -->
         <div id="main" class="wrapper style1">
@@ -271,20 +277,21 @@
         </div>
 
         <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-                <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-            </ul>
-            <ul class="copyright">
-                <li>&copy; LabWired Inc. All rights reserved.</li>
-                <li><a href="https://labwired.com">LabWired.com</a></li>
-            </ul>
-        </footer>
+        <!-- COMPONENT: footer -->
+<footer id="footer">
+    <ul class="icons">
+        <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                    class="label">GitHub</span></a></li>
+        <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
+        </li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; LabWired Inc. All rights reserved.</li>
+        <li><a href="https://labwired.com">LabWired.com</a></li>
+        <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+    </ul>
+</footer>
+<!-- END COMPONENT: footer -->
 
     </div>
 

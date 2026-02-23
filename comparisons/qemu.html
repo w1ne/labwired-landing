@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <!-- COMPONENT: analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-T4J4MDP5GP');
+    </script>
+    <!-- END COMPONENT: analytics -->
+    <title>LabWired vs QEMU: Modernizing Firmware Simulation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description"
+        content="Looking for QEMU alternatives for STM32? LabWired provides bus-level determinism and rapid peripheral modeling for modern firmware teams." />
+    <meta name="keywords"
+        content="QEMU alternatives, STM32 emulator, firmware unit testing, virtual HIL, embedded CI/CD" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        .comparison-table {
+            width: 100%;
+            margin: 2em 0;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1em;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 700;
+        }
+
+        .win-cell {
+            background: rgba(0, 255, 0, 0.05);
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+    <div id="page-wrapper">
+        <!-- COMPONENT: header -->
+        <header id="header">
+            <h1 id="logo"><a href="../index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html#four">Features</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                    <li><a href="../docs.html">Docs</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+        </header>
+        <!-- END COMPONENT: header -->
+
+        <section id="main" class="wrapper style1">
+            <div class="container">
+                <header class="major">
+                    <h2>LabWired vs. QEMU</h2>
+                    <p>Modernizing Firmware Simulation for 2026</p>
+                </header>
+
+                <div class="content">
+                    <p>When searching for the <strong>best STM32 simulator</strong>, QEMU is often the first tool
+                        developers find. However, QEMU was built for general-purpose virtualization, not for the
+                        surgical precision required in <strong>embedded firmware verification</strong>.</p>
+
+                    <h3>The Fidelity Gap in QEMU</h3>
+                    <p>QEMU's abstraction layer is highly optimized for performance but often at the cost of peripheral
+                        fidelity. If your firmware relies on precise timing of a DMA transfer or specific interrupt
+                        priority masking, QEMU may "smoke test" successfully while missing business-critical race
+                        conditions.</p>
+
+                    <h3>LabWired Advantages:</h3>
+                    <ul>
+                        <li><strong>Peripheral-First Design</strong>: We focus on the bit-level behavior of peripherals
+                            (RCC, GPIO, DMA, UART), not just CPU instruction emulation.</li>
+                        <li><strong>Performance vs Precision</strong>: While QEMU is fast via binary translation, it
+                            sacrifices cycle-level precision. LabWired offers a strictly deterministic lockstep engine
+                            that models the entire system state accurately—while still achieving <strong>~46 MIPS
+                                throughput</strong> on single-core workloads like our bare-metal Cortex-M3 benchmarks.
+                        </li>
+                        <li><strong>Trace Replayability</strong>: LabWired allows you to capture a failure and
+                            <strong>replay it exactly</strong> as it happened, a feature that is notoriously difficult
+                            to achieve in standard QEMU.
+                        </li>
+                        <li><strong>Modern Tooling</strong>: No more wrestling with QEMU's legacy command-line
+                            arguments. LabWired's <code>system.yaml</code> makes platform definition readable and
+                            version-controllable.</li>
+                    </ul>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>QEMU</th>
+                                <th>LabWired</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Engine Focus</td>
+                                <td>Instruction Speed</td>
+                                <td class="win-cell">Bus-level Determinism</td>
+                            </tr>
+                            <tr>
+                                <td>State Inspection</td>
+                                <td>GDB-dependent</td>
+                                <td class="win-cell">Structured JSON Telemetry</td>
+                            </tr>
+                            <tr>
+                                <td>Model Depth</td>
+                                <td>Generic</td>
+                                <td class="win-cell">High-fidelity MCU stubs</td>
+                            </tr>
+                            <tr>
+                                <td>Onboarding</td>
+                                <td>High friction (C code)</td>
+                                <td class="win-cell">Low friction (YAML/Config)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <footer>
+                        <ul class="actions special">
+                            <li><a href="../index.html" class="button primary">Get Started</a></li>
+                        </ul>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPONENT: footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                            class="label">GitHub</span></a></li>
+                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
+                            class="label">Email</span></a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; LabWired Inc. All rights reserved.</li>
+                <li><a href="https://labwired.com">LabWired.com</a></li>
+                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+            </ul>
+        </footer>
+        <!-- END COMPONENT: footer -->
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

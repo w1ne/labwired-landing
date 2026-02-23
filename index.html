@@ -7,50 +7,81 @@
 <html>
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <!-- COMPONENT: analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        gtag('config', 'G-T4J4MDP5GP');
-    </script>
-    <title>LabWired - Intelligent Hardware Connectivity</title>
+    gtag('config', 'G-T4J4MDP5GP');
+</script>
+<!-- END COMPONENT: analytics -->
+    <title>LabWired - Deterministic Embedded Firmware Simulation & HIL CI/CD</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description"
+        content="LabWired is a deterministic hardware simulation platform for firmware CI/CD. Create MCU digital twins (STM32, RISC-V) for bit-accurate verification and HIL replacement." />
+    <meta name="keywords"
+        content="deterministic embedded simulation, firmware CI/CD, STM32 simulator, MCU digital twin, HIL replacement, virtual hardware validation" />
     <meta name="version" content="v0.12.5-fix-docs-layout" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <noscript>
         <link rel="stylesheet" href="noscript.css" />
     </noscript>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "LabWired",
+      "operatingSystem": "Linux, Windows, macOS",
+      "applicationCategory": "DevelopmentTool",
+      "description": "Deterministic hardware simulation platform for firmware CI/CD and bit-accurate MCU verification.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "1"
+      }
+    }
+    </script>
 </head>
 
 <body class="is-preload landing">
     <div id="page-wrapper">
 
         <!-- Header -->
-        <header id="header">
-            <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#four">Features</a></li>
-                    <li><a href="docs.html">Docs</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
-        </header>
+        <!-- COMPONENT: header -->
+<header id="header">
+    <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="#four">Features</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+</header>
+<!-- END COMPONENT: header -->
 
         <!-- Banner -->
         <section id="banner">
             <div class="content">
                 <header>
-                    <h2>The Agentic Hardware<br />
-                        Simulation Platform</h2>
-                    <p>Simulate, debug, and control physical hardware<br />
-                        with autonomous agents.</p>
+                    <h2>Deterministic Embedded<br />
+                        Simulation for CI/CD</h2>
+                    <p>Eliminate flaky firmware tests with bit-accurate<br />
+                        virtual hardware and MCU digital twins.</p>
                 </header>
                 <span class="image fit main">
                     <div class="css-graphic graphic-1"></div>
@@ -141,6 +172,42 @@
             </div>
         </section>
 
+        <!-- Resources -->
+        <section id="resources" class="wrapper style2 special fade-up">
+            <div class="container">
+                <header class="major">
+                    <h2>Resources & Insights</h2>
+                    <p>Deep dives into deterministic simulation and firmware CI/CD.</p>
+                </header>
+                <div class="row gtr-150">
+                    <div class="col-4 col-12-medium">
+                        <section class="box">
+                            <i class="icon solid major fa-blog"></i>
+                            <h3>Technical Blog</h3>
+                            <p><strong>The Ghost in the CI</strong>: Why embedded tests flake and how to stop it.</p>
+                            <a href="blog/fixing-flaky-firmware-tests.html" class="button fit">Read Article</a>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="box">
+                            <i class="icon solid major fa-balance-scale"></i>
+                            <h3>LabWired vs. Renode</h3>
+                            <p>Discover why determinism is the key to scaling your firmware validation.</p>
+                            <a href="comparisons/renode.html" class="button fit">Compare</a>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="box">
+                            <i class="icon solid major fa-microchip"></i>
+                            <h3>LabWired vs. QEMU</h3>
+                            <p>Modernizing firmware simulation for high-fidelity MCU verification.</p>
+                            <a href="comparisons/qemu.html" class="button fit">Compare</a>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Four -->
         <section id="four" class="wrapper style1 special fade-up">
             <div class="container">
@@ -178,19 +245,21 @@
         </section>
 
         <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
-                            class="label">GitHub</span></a></li>
-                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
-                            class="label">Email</span></a></li>
-            </ul>
-            <ul class="copyright">
-                <li>&copy; LabWired Inc. All rights reserved.</li>
-                <li><a href="https://labwired.com">LabWired.com</a></li>
-                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
-            </ul>
-        </footer>
+        <!-- COMPONENT: footer -->
+<footer id="footer">
+    <ul class="icons">
+        <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                    class="label">GitHub</span></a></li>
+        <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
+        </li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; LabWired Inc. All rights reserved.</li>
+        <li><a href="https://labwired.com">LabWired.com</a></li>
+        <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+    </ul>
+</footer>
+<!-- END COMPONENT: footer -->
 
     </div>
 

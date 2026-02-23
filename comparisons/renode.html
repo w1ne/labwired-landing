@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <!-- COMPONENT: analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-T4J4MDP5GP');
+    </script>
+    <!-- END COMPONENT: analytics -->
+    <title>LabWired vs Renode: Deterministic Firmware Simulation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description"
+        content="Compare LabWired and Renode for embedded firmware simulation. Discover why LabWired is the superior choice for deterministic CI/CD and rapid MCU onboarding." />
+    <meta name="keywords"
+        content="Renode alternatives, firmware simulation comparison, LabWired vs Renode, deterministic HIL, virtual hardware validation" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        .comparison-table {
+            width: 100%;
+            margin: 2em 0;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1em;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 700;
+        }
+
+        .win-cell {
+            background: rgba(0, 255, 0, 0.05);
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+    <div id="page-wrapper">
+        <!-- COMPONENT: header -->
+        <header id="header">
+            <h1 id="logo"><a href="../index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html#four">Features</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                    <li><a href="../docs.html">Docs</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+        </header>
+        <!-- END COMPONENT: header -->
+
+        <section id="main" class="wrapper style1">
+            <div class="container">
+                <header class="major">
+                    <h2>LabWired vs. Renode</h2>
+                    <p>Why Determinism is the Key to Scaling Firmware CI</p>
+                </header>
+
+                <div class="content">
+                    <p>If you are looking for <strong>Renode alternatives</strong>, you likely value simulation fidelity
+                        and ease of onboarding. While Renode is a powerful tool for IoT multi-node simulation, LabWired
+                        is built specifically for <strong>deterministic firmware validation</strong> and
+                        <strong>agent-first CI/CD</strong>.
+                    </p>
+
+                    <h3>1. Bit-Accurate Determinism by Default</h3>
+                    <p>Renode provides a powerful framework, but ensuring 100% reproducible execution across different
+                        host environments can be challenging. LabWired's core engine is built from the ground up for
+                        <strong>lockstep determinism</strong>, meaning every simulation run is identical down to the bus
+                        transaction level.
+                    </p>
+
+                    <h3>2. Config-First Onboarding</h3>
+                    <p>Renode often requires complex C# or Python platform definitions. LabWired uses a
+                        declarative <code>system.yaml</code> and <code>chip.yaml</code> structure. You can
+                        bring up a new MCU board by simply describing its memory map and peripheral stubs. <strong>Go
+                            from datasheet to UART smoke in under an hour.</strong>
+                    </p>
+                    <p>For headless testing, it's as simple as running
+                        <code>labwired test --script examples/ci/uart-ok.yaml</code>, which yields deterministic outputs
+                        at <strong>~46.6 MIPS</strong> rather than flaky, load-dependent results.</p>
+
+                    <h3>3. Integrated for AI Agents</h3>
+                    <p>LabWired isn't just a debugger; it's an <strong>AIPi (AI Programming Interface)</strong>. Our
+                        structured telemetry and observability hooks are designed for autonomous agents to verify
+                        hardware, whereas Renode focuses more on traditional human-driven developer workflows.</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Renode</th>
+                                <th>LabWired</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Primary Focus</td>
+                                <td>Multi-node / IoT Systems</td>
+                                <td class="win-cell">Deterministic Firmware CI</td>
+                            </tr>
+                            <tr>
+                                <td>Model Creation</td>
+                                <td>DSL / C# (High effort)</td>
+                                <td class="win-cell">YAML / AI-Synthesized (Low effort)</td>
+                            </tr>
+                            <tr>
+                                <td>Execution</td>
+                                <td>Real-time oriented</td>
+                                <td class="win-cell">Lockstep Deterministic</td>
+                            </tr>
+                            <tr>
+                                <td>CI Integration</td>
+                                <td>Excellent</td>
+                                <td class="win-cell">Native YAML Test Runner</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <footer>
+                        <ul class="actions special">
+                            <li><a href="../index.html" class="button primary">Get Started</a></li>
+                        </ul>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPONENT: footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                            class="label">GitHub</span></a></li>
+                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
+                            class="label">Email</span></a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; LabWired Inc. All rights reserved.</li>
+                <li><a href="https://labwired.com">LabWired.com</a></li>
+                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+            </ul>
+        </footer>
+        <!-- END COMPONENT: footer -->
+    </div>
+    <script src="../script.js"></script>
+</body>
+
+</html>
