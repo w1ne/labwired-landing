@@ -795,6 +795,18 @@ footer.major .actions li {
     color: #ffffff;
 }
 
+.wrapper.style2 .box {
+    color: #000000 !important;
+}
+
+.wrapper.style2 .box h2,
+.wrapper.style2 .box h3,
+.wrapper.style2 .box h4,
+.wrapper.style2 .box p,
+.wrapper.style2 .box strong {
+    color: #000000 !important;
+}
+
 .wrapper.style2 form input {
     border-color: rgba(255, 255, 255, 0.5);
     color: #ffffff;
@@ -1310,6 +1322,7 @@ section h3 i {
         padding: 2.5em 0;
     }
 }
+
 /* Premium Table Design - Added for LabWired Docs */
 .table-wrapper {
     -webkit-overflow-scrolling: touch;
