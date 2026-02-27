@@ -112,8 +112,8 @@ function simulationLoop() {
     if (!isRunning || !simulator) return;
 
     try {
-        // Throttled: 10k instructions per frame to reduce CPU load
-        const stepSize = 10000;
+        // Throttled: 5k instructions per frame for visible blink rate
+        const stepSize = 5000;
         simulator.step(stepSize);
         totalCycles += stepSize;
 

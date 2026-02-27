@@ -38,9 +38,9 @@ function toggleGdb() {
         gdbSocket.binaryType = 'arraybuffer';
 
         gdbSocket.onopen = () => {
-            elements.gdbStatus.classList.add('active');
-            elements.gdbText.innerText = 'GDB Bridge: Connected';
-            elements.btnGdb.innerText = 'Disable GDB Link';
+            if (elements.gdbStatus) elements.gdbStatus.classList.add('active');
+            if (elements.gdbText) elements.gdbText.innerText = 'GDB Bridge: Connected';
+            if (elements.btnGdb) elements.btnGdb.innerText = 'Disable GDB Link';
             console.log("GDB WebSocket Connected");
         };
 
@@ -55,9 +55,9 @@ function toggleGdb() {
         };
 
         gdbSocket.onclose = () => {
-            elements.gdbStatus.classList.remove('active');
-            elements.gdbText.innerText = 'GDB Bridge: Disconnected';
-            elements.btnGdb.innerText = 'Enable GDB Link';
+            if (elements.gdbStatus) elements.gdbStatus.classList.remove('active');
+            if (elements.gdbText) elements.gdbText.innerText = 'GDB Bridge: Disconnected';
+            if (elements.btnGdb) elements.btnGdb.innerText = 'Enable GDB Link';
             gdbSocket = null;
             console.log("GDB WebSocket Disconnected");
         };
@@ -171,9 +171,9 @@ function simulationLoop() {
     if (!isRunning || !simulator) return;
 
     try {
-        // Throttled execution: 10,000 instructions per frame (~600k/sec)
-        // to prevent CPU drain while keeping UI responsive.
-        const stepSize = isRunning ? 10000 : 0;
+        // Balanced throttling: 5,000 instructions per frame (~300k/sec)
+        // Provides visible blink rate while remaining light on CPU.
+        const stepSize = isRunning ? 5000 : 0;
         if (stepSize > 0) {
             simulator.step(stepSize);
             totalCycles += stepSize;
