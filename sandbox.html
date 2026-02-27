@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <!-- COMPONENT: analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-T4J4MDP5GP');
+</script>
+<!-- END COMPONENT: analytics -->
+    <title>LabWired - Live Sandbox</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <noscript>
+        <link rel="stylesheet" href="noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload landing">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <!-- COMPONENT: header -->
+<header id="header" data-nosnippet>
+    <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html#four">Features</a></li>
+            <li><a href="sandbox.html">Live Sandbox</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+</header>
+<!-- END COMPONENT: header -->
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+            <div class="sandbox-container">
+                <header class="major">
+                    <h2>Live Sandbox</h2>
+                    <p>High-Fidelity MCU Simulation & Debugger</p>
+                </header>
+
+                <div id="loading-overlay" class="sandbox-loading">
+                    <div class="spinner"></div>
+                    <p>Initializing WASM Core...</p>
+                </div>
+
+                <div class="sandbox-compact-layout">
+                    <!-- Visualization Top -->
+                    <div class="sandbox-visual-compact">
+                        <div class="hw-diagram">
+                            <img src="demo/assets/diagram.png" alt="Hardware Wiring Diagram">
+                            <div id="virtualLed" class="led-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Metrics & Controls Middle -->
+                    <div class="sandbox-toolbar">
+                        <div class="sandbox-stats-compact">
+                            <div class="stat-item">
+                                <span class="stat-label">PC</span>
+                                <span id="pcValue" class="stat-value">0x00000000</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Cycles</span>
+                                <span id="cycleCount" class="stat-value">0</span>
+                            </div>
+                        </div>
+                        <div class="sandbox-controls-compact">
+                            <button id="btnStart" class="button primary small" disabled><i class="fa-solid fa-play"></i>
+                                Run</button>
+                            <button id="btnPause" class="button small" disabled><i class="fa-solid fa-pause"></i>
+                                Pause</button>
+                            <button id="btnStep" class="button small" disabled><i class="fa-solid fa-forward-step"></i>
+                                Step</button>
+                            <button id="btnStop" class="button small" disabled><i class="fa-solid fa-rotate-left"></i>
+                                Reset</button>
+                        </div>
+                    </div>
+
+                    <!-- Debugger Bottom -->
+                    <div class="sandbox-debugger-compact">
+                        <div class="db-row">
+                            <div class="db-section trace">
+                                <h3><i class="fa-solid fa-terminal"></i> Instruction Trace</h3>
+                                <div id="disasm" class="db-code-view">
+                                    Fetching next instruction...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="db-row grid">
+                            <div class="db-section registers">
+                                <h3><i class="fa-solid fa-microchip"></i> Registers</h3>
+                                <div id="registers" class="db-reg-grid">
+                                    <!-- Dynamic -->
+                                </div>
+                            </div>
+                            <div class="db-section memory">
+                                <h3><i class="fa-solid fa-layer-group"></i> Stack Area</h3>
+                                <div id="memory" class="db-mem-view">
+                                    <!-- Dynamic Hex -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <footer class="major" style="margin-top: 2em; font-size: 0.8em; opacity: 0.7;">
+                    <p>Running production ARM binary on a deterministic Cortex-M3 core.</p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <!-- COMPONENT: footer -->
+<footer id="footer" data-nosnippet>
+    <ul class="icons">
+        <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                    class="label">GitHub</span></a></li>
+        <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
+        </li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; LabWired Inc. All rights reserved.</li>
+        <li><a href="https://labwired.com">LabWired.com</a></li>
+        <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+    </ul>
+</footer>
+<!-- END COMPONENT: footer -->
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script type="module" src="sandbox-app.js"></script>
+
+</body>
+
+</html>

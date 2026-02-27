@@ -273,7 +273,6 @@ h5 {
 .hw-diagram {
     position: relative;
     border: 2px solid #000;
-    border-radius: 12px;
     background: #fff;
     padding: 0.5em;
     box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
@@ -310,9 +309,9 @@ h5 {
     align-items: center;
     background: #f8f9fa;
     border: 1px solid #ddd;
-    border-radius: 12px;
     padding: 0.75em 1.5em;
     gap: 1em;
+    box-shadow: 4px 4px 0px #000;
 }
 
 @media screen and (max-width: 736px) {
@@ -360,12 +359,12 @@ h5 {
 /* Debugger Panel */
 .sandbox-debugger-compact {
     background: #1e1e28;
-    border-radius: 16px;
     padding: 1.5em;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 2px solid #000;
+    box-shadow: 8px 8px 0px #000;
     color: #efefef;
     text-align: left;
 }
@@ -388,7 +387,6 @@ h5 {
     font-family: 'JetBrains Mono', monospace;
     background: #111;
     padding: 1em;
-    border-radius: 8px;
     color: #0ff;
     font-size: 0.9em;
     border-left: 3px solid #e83e8c;
@@ -416,7 +414,6 @@ h5 {
 .reg-item {
     background: rgba(255, 255, 255, 0.05);
     padding: 0.4em 0.6em;
-    border-radius: 4px;
     display: flex;
     justify-content: space-between;
     font-size: 0.8em;
@@ -434,7 +431,6 @@ h5 {
     font-family: 'JetBrains Mono', monospace;
     background: #111;
     padding: 0.75em;
-    border-radius: 8px;
     font-size: 0.75em;
     height: 120px;
     overflow-y: auto;
@@ -480,49 +476,7 @@ h5 {
     }
 }
 
-/* GDB Panel */
-.gdb-panel {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 1em;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
 
-.gdb-status {
-    display: flex;
-    align-items: center;
-    gap: 0.75em;
-    font-size: 0.85em;
-}
-
-.status-dot {
-    width: 10px;
-    height: 10px;
-    background: #444;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.status-dot.active {
-    background: #0f0;
-    box-shadow: 0 0 10px #0f0;
-}
-
-.gdb-instructions {
-    font-size: 0.75em;
-    color: #888;
-}
-
-.gdb-instructions code {
-    display: block;
-    margin-top: 0.5em;
-    background: #000;
-    padding: 0.5em;
-    color: #e83e8c;
-    border-radius: 4px;
-}
 
 
 h6 {
@@ -923,19 +877,18 @@ footer.major .actions li {
 .install-block {
     margin: 2em auto 0;
     max-width: 36em;
-    background: #0d1117;
-    border: 1.5px solid #30363d;
-    border-radius: 10px;
+    background: #fff;
+    border: 2px solid #000;
     padding: 1em 1.25em 0.85em;
     text-align: left;
-    box-shadow: 4px 4px 0px #000000;
+    box-shadow: 6px 6px 0px #000;
 }
 
 .install-title {
-    font-size: 0.7em;
+    font-size: 0.65em;
     font-family: 'Roboto Mono', 'Consolas', monospace;
-    color: #6e7681;
-    letter-spacing: 0.08em;
+    color: #555;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 0.6em;
 }
@@ -948,9 +901,8 @@ footer.major .actions li {
     display: flex;
     align-items: center;
     gap: 0.75em;
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 6px;
+    background: #f4f4f4;
+    border: 1px solid #000;
     padding: 0.6em 0.9em;
 }
 
@@ -958,7 +910,7 @@ footer.major .actions li {
     flex: 1;
     font-family: 'Roboto Mono', 'Consolas', monospace;
     font-size: 0.85em;
-    color: #58d68d;
+    color: #000;
     background: none;
     border: none;
     padding: 0;
@@ -971,37 +923,36 @@ footer.major .actions li {
 .copy-btn {
     flex: 0 0 auto;
     background: none;
-    border: 1px solid #30363d;
-    border-radius: 5px;
-    color: #6e7681;
+    border: 1px solid #000;
+    color: #000;
     cursor: pointer;
     padding: 0.3em 0.5em;
     font-size: 0.8em;
-    transition: color 0.15s, border-color 0.15s;
+    transition: background 0.1s;
     line-height: 1;
 }
 
 .copy-btn:hover {
-    color: #c9d1d9;
-    border-color: #6e7681;
+    background: #000;
+    color: #fff;
 }
 
 .install-sub {
-    font-size: 0.7em;
-    color: #6e7681;
+    font-size: 0.68em;
+    color: #555;
     margin-top: 0.65em;
     font-family: 'Roboto Mono', 'Consolas', monospace;
 }
 
 .install-sub a {
-    color: #58a6ff;
-    border: none;
+    color: #000;
+    border-bottom: 1px solid #000;
     text-decoration: none;
 }
 
 .install-sub a:hover {
-    color: #79b8ff;
-    text-decoration: underline;
+    background: #000;
+    color: #fff;
 }
 
 @media screen and (max-width: 736px) {
