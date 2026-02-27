@@ -921,7 +921,7 @@ footer.major .actions li {
 
 /* One-liner install block in the banner */
 .install-block {
-    margin: 1.75em auto 0;
+    margin: 2em auto 0;
     max-width: 36em;
     background: #0d1117;
     border: 1.5px solid #30363d;
