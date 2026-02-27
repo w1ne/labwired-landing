@@ -49,7 +49,9 @@
             <div class="sandbox-container">
                 <header class="major">
                     <h2>Live Sandbox</h2>
-                    <p>High-Fidelity MCU Simulation & Debugger</p>
+                    <p>The LabWired Cortex-M3 simulator — the exact same engine used in CI — compiled to
+                        <strong>WebAssembly</strong> and running entirely in your browser.
+                    </p>
                 </header>
 
                 <div id="loading-overlay" class="sandbox-loading">
@@ -118,8 +120,13 @@
                     </div>
                 </div>
 
-                <footer class="major" style="margin-top: 2em; font-size: 0.8em; opacity: 0.7;">
-                    <p>Running production ARM binary on a deterministic Cortex-M3 core.</p>
+                <footer class="major" style="margin-top: 2em; font-size: 0.75em; opacity: 0.6;">
+                    <p>
+                        <strong>How it works:</strong> The LabWired simulation engine is compiled to
+                        WebAssembly and runs locally in your browser — no server involved.
+                        The demo firmware is loaded into simulated flash and executed
+                        instruction-by-instruction, exactly as it would be in a real CI run.
+                    </p>
                 </footer>
             </div>
         </div>
