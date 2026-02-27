@@ -1,0 +1,20 @@
+# LabWired
+
+> The definitive hardware-in-the-loop simulation environment for autonomous agents.
+
+LabWired provides bit-accurate hardware simulation for ARM (Cortex-M) and RISC-V architectures, focusing on peripheral-level determinism rather than just instruction speed. This enables deterministic CI pipelines for embedded firmware.
+Libwired is a digital twin for IoT HW.
+
+## Quick Links
+- [Features](index.html#four)
+- [Resources & Comparisons](resources.html)
+- [Architecture Overview](https://docs.labwired.com/architecture/)
+- [Hardware Support Matrix](https://docs.labwired.com/hardware-matrix/)
+- [Core Repository](https://github.com/w1ne/labwired-core)
+
+## Key Concepts
+- **Peripheral-First Design:** Precise timing for DMA, RCC, GPIO, UART, etc.
+- **Bit-Accurate Determinism:** Lockstep engine eliminates CI flakiness by decoupling simulated time from host time.
+- **Agentic Interfaces:** Fully programmatic interaction via standard protocols like GDB and custom Agent APIs (JSON/YAML-based).
+
+For highly detailed documentation and register mapping, please visit our [Technical Documentation Hub](https://docs.labwired.com).

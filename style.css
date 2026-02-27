@@ -639,7 +639,9 @@ footer.major .actions li {
 }
 
 #banner .image {
-    display: none;
+    display: block;
+    width: 100%;
+    margin-top: 2em;
 }
 
 .goto-next {
@@ -791,6 +793,18 @@ footer.major .actions li {
 .wrapper.style2 h4,
 .wrapper.style2 p {
     color: #ffffff;
+}
+
+.wrapper.style2 .box {
+    color: #000000 !important;
+}
+
+.wrapper.style2 .box h2,
+.wrapper.style2 .box h3,
+.wrapper.style2 .box h4,
+.wrapper.style2 .box p,
+.wrapper.style2 .box strong {
+    color: #000000 !important;
 }
 
 .wrapper.style2 form input {
@@ -1308,6 +1322,7 @@ section h3 i {
         padding: 2.5em 0;
     }
 }
+
 /* Premium Table Design - Added for LabWired Docs */
 .table-wrapper {
     -webkit-overflow-scrolling: touch;

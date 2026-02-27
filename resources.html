@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<!--
+    Landed by HTML5 UP (Adapted for LabWired)
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <!-- COMPONENT: analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-T4J4MDP5GP');
+    </script>
+    <!-- END COMPONENT: analytics -->
+    <title>Resources - LabWired</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <noscript>
+        <link rel="stylesheet" href="noscript.css" />
+    </noscript>
+    <style>
+        .tech-section {
+            margin-bottom: 4em;
+        }
+
+        .tech-section h3 {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 0.5em;
+            margin-bottom: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tech-section h3 i {
+            color: #000000;
+        }
+
+        /* Apply the dark text override since we moved .box out of .wrapper.style2 */
+        .resources-box {
+            color: #000000 !important;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .resources-box h3,
+        .resources-box p,
+        .resources-box strong {
+            color: #000000 !important;
+        }
+
+        .resources-box .button {
+            margin-top: auto;
+        }
+
+        /* Ensure columns stretch */
+        #main .row.gtr-150>div {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+    <div id="page-wrapper">
+
+        <!-- COMPONENT: header -->
+        <header id="header" data-nosnippet>
+            <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html#four">Features</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+        </header>
+        <!-- END COMPONENT: header -->
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+            <div class="container">
+                <header class="major">
+                    <h2>Resources & Insights</h2>
+                    <p>Deep dives into deterministic simulation and firmware CI/CD.</p>
+                </header>
+
+                <div class="row gtr-150">
+                    <div class="col-4 col-12-medium">
+                        <section class="box resources-box">
+                            <i class="icon solid major fa-blog"></i>
+                            <h3>Technical Blog</h3>
+                            <p><strong>The Ghost in the CI</strong>: Why embedded tests flake and how to stop it.</p>
+                            <a href="blog/fixing-flaky-firmware-tests.html" class="button fit">Read Article</a>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="box resources-box">
+                            <i class="icon solid major fa-balance-scale"></i>
+                            <h3>LabWired vs. Renode</h3>
+                            <p>Discover why determinism is the key to scaling your firmware validation.</p>
+                            <a href="comparisons/renode.html" class="button fit">Compare</a>
+                        </section>
+                    </div>
+                    <div class="col-4 col-12-medium">
+                        <section class="box resources-box">
+                            <i class="icon solid major fa-microchip"></i>
+                            <h3>LabWired vs. QEMU</h3>
+                            <p>Modernizing firmware simulation for high-fidelity MCU verification.</p>
+                            <a href="comparisons/qemu.html" class="button fit">Compare</a>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPONENT: footer -->
+        <footer id="footer" data-nosnippet>
+            <ul class="icons">
+                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                            class="label">GitHub</span></a></li>
+                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
+                            class="label">Email</span></a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; LabWired Inc. All rights reserved.</li>
+                <li><a href="https://labwired.com">LabWired.com</a></li>
+                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+            </ul>
+        </footer>
+        <!-- END COMPONENT: footer -->
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
