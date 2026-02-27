@@ -8,16 +8,16 @@
 
 <head>
     <!-- COMPONENT: analytics -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        gtag('config', 'G-T4J4MDP5GP');
-    </script>
-    <!-- END COMPONENT: analytics -->
+    gtag('config', 'G-T4J4MDP5GP');
+</script>
+<!-- END COMPONENT: analytics -->
     <title>LabWired - Deterministic Embedded Firmware Simulation & HIL CI/CD</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -60,19 +60,20 @@
 
         <!-- Header -->
         <!-- COMPONENT: header -->
-        <header id="header" data-nosnippet>
-            <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#four">Features</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="docs.html">Docs</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
-        </header>
-        <!-- END COMPONENT: header -->
+<header id="header" data-nosnippet>
+    <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="#four">Features</a></li>
+            <li><a href="sandbox.html">Live Sandbox</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+</header>
+<!-- END COMPONENT: header -->
 
         <!-- Banner -->
         <section id="banner">
@@ -86,6 +87,17 @@
                 <span class="image fit main">
                     <div class="css-graphic graphic-1"></div>
                 </span>
+            </div>
+            <div class="install-block">
+                <div class="install-title"><i class="fa-solid fa-terminal"></i> Quick Install</div>
+                <div class="install-cmd">
+                    <code id="install-oneliner">curl -fsSL https://labwired.com/install.sh | sh</code>
+                    <button class="copy-btn"
+                        onclick="navigator.clipboard.writeText('curl -fsSL https://labwired.com/install.sh | sh').then(()=>{this.innerHTML='<i class=\'fa-solid fa-check\'></i>';setTimeout(()=>{this.innerHTML='<i class=\'fa-solid fa-copy\'></i>'},1500)})"
+                        title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
+                </div>
+                <div class="install-sub">Linux &amp; macOS &nbsp;·&nbsp; x86_64 &amp; ARM64 &nbsp;·&nbsp; <a
+                        href="docs.html">See full install guide →</a></div>
             </div>
             <a href="#four" class="goto-next scrolly">Next</a>
         </section>
@@ -212,21 +224,20 @@
 
         <!-- Footer -->
         <!-- COMPONENT: footer -->
-        <footer id="footer" data-nosnippet>
-            <ul class="icons">
-                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
-                            class="label">GitHub</span></a></li>
-                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
-                            class="label">Email</span></a>
-                </li>
-            </ul>
-            <ul class="copyright">
-                <li>&copy; LabWired Inc. All rights reserved.</li>
-                <li><a href="https://labwired.com">LabWired.com</a></li>
-                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
-            </ul>
-        </footer>
-        <!-- END COMPONENT: footer -->
+<footer id="footer" data-nosnippet>
+    <ul class="icons">
+        <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                    class="label">GitHub</span></a></li>
+        <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
+        </li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; LabWired Inc. All rights reserved.</li>
+        <li><a href="https://labwired.com">LabWired.com</a></li>
+        <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+    </ul>
+</footer>
+<!-- END COMPONENT: footer -->
 
     </div>
 
