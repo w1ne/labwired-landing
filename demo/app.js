@@ -1,3 +1,4 @@
+console.log("demo/app.js: Loading module...");
 import init, { WasmSimulator } from './wasm/labwired_wasm.js';
 
 let simulator = null;
@@ -22,11 +23,21 @@ const elements = {
 
 async function boot() {
     try {
-        await init();
+        console.log("Initializing WASM Core...");
+        // Initialize WASM from the demo folder
+        // For the standalone demo, wasm is in the 'wasm' subfolder relative to this script
+        await init('./wasm/labwired_wasm_bg.wasm');
+
+        console.log("Fetching firmware...");
         const firmwareResponse = await fetch('demo-blinky.bin');
+        if (!firmwareResponse.ok) {
+            throw new Error(`Could not fetch firmware binary: ${firmwareResponse.status} ${firmwareResponse.statusText}`);
+        }
+
         const firmwareBuffer = await firmwareResponse.arrayBuffer();
         const firmwareBytes = new Uint8Array(firmwareBuffer);
 
+        console.log("Starting simulator...");
         simulator = new WasmSimulator(firmwareBytes);
         registerNames = simulator.get_register_names();
 
@@ -35,9 +46,14 @@ async function boot() {
 
         createRegisterGrid();
         updateUI();
+        console.log("WASM Core Initialized successfully.");
     } catch (e) {
-        elements.loading.innerText = 'Error loading simulator: ' + e;
-        console.error(e);
+        console.error("Initialization Failed:", e);
+        elements.loading.innerHTML = `
+            <div style="color: #ff3333; font-weight: bold; margin-bottom: 0.5rem;">Initialization Failed</div>
+            <div style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 1rem;">${e.message}</div>
+            <button onclick="location.reload()" style="background: #444; color: #fff; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Retry</button>
+        `;
     }
 }
 
@@ -96,8 +112,8 @@ function simulationLoop() {
     if (!isRunning || !simulator) return;
 
     try {
-        // High-speed execution (batch of cycles per frame)
-        const stepSize = 100000;
+        // Throttled: 5k instructions per frame for visible blink rate
+        const stepSize = 5000;
         simulator.step(stepSize);
         totalCycles += stepSize;
 

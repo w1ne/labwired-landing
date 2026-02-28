@@ -1,3 +1,4 @@
+console.log("sandbox-app.js: Loading module...");
 import init, { WasmSimulator } from './demo/wasm/labwired_wasm.js';
 
 let simulator = null;
@@ -37,9 +38,9 @@ function toggleGdb() {
         gdbSocket.binaryType = 'arraybuffer';
 
         gdbSocket.onopen = () => {
-            elements.gdbStatus.classList.add('active');
-            elements.gdbText.innerText = 'GDB Bridge: Connected';
-            elements.btnGdb.innerText = 'Disable GDB Link';
+            if (elements.gdbStatus) elements.gdbStatus.classList.add('active');
+            if (elements.gdbText) elements.gdbText.innerText = 'GDB Bridge: Connected';
+            if (elements.btnGdb) elements.btnGdb.innerText = 'Disable GDB Link';
             console.log("GDB WebSocket Connected");
         };
 
@@ -54,9 +55,9 @@ function toggleGdb() {
         };
 
         gdbSocket.onclose = () => {
-            elements.gdbStatus.classList.remove('active');
-            elements.gdbText.innerText = 'GDB Bridge: Disconnected';
-            elements.btnGdb.innerText = 'Enable GDB Link';
+            if (elements.gdbStatus) elements.gdbStatus.classList.remove('active');
+            if (elements.gdbText) elements.gdbText.innerText = 'GDB Bridge: Disconnected';
+            if (elements.btnGdb) elements.btnGdb.innerText = 'Enable GDB Link';
             gdbSocket = null;
             console.log("GDB WebSocket Disconnected");
         };
@@ -73,15 +74,21 @@ function toggleGdb() {
 
 async function boot() {
     try {
+        console.log("Initializing WASM Core...");
         // Initialize WASM from the demo folder
+        // Note: we pass the .wasm path explicitly to ensure it loads even if fetch path inference fails
         await init('./demo/wasm/labwired_wasm_bg.wasm');
 
+        console.log("Fetching firmware...");
         const firmwareResponse = await fetch('./demo/demo-blinky.bin');
-        if (!firmwareResponse.ok) throw new Error("Could not fetch firmware binary");
+        if (!firmwareResponse.ok) {
+            throw new Error(`Could not fetch firmware binary: ${firmwareResponse.status} ${firmwareResponse.statusText}`);
+        }
 
         const firmwareBuffer = await firmwareResponse.arrayBuffer();
         const firmwareBytes = new Uint8Array(firmwareBuffer);
 
+        console.log("Starting simulator...");
         simulator = new WasmSimulator(firmwareBytes);
         registerNames = simulator.get_register_names();
 
@@ -91,10 +98,20 @@ async function boot() {
 
         createRegisterGrid();
         updateUI();
+        console.log("WASM Core Initialized successfully.");
     } catch (e) {
+        if (e.message.includes("Timed out")) {
+            console.warn("Initialization took longer than expected.");
+        }
+        console.error("Initialization Failed:", e);
         const p = elements.overlay.querySelector('p');
-        if (p) p.innerText = 'Initialization Failed: ' + e.message;
-        console.error(e);
+        if (p) {
+            p.innerHTML = `<span style="color: #ff3333; font-weight: bold;">Initialization Failed</span><br/>
+                           <span style="font-size: 0.8em; opacity: 0.8;">${e.message}</span><br/>
+                           <button onclick="location.reload()" style="margin-top: 10px; padding: 5px 10px; font-size: 0.7em;">Retry</button>`;
+        }
+        const spinner = elements.overlay.querySelector('.spinner');
+        if (spinner) spinner.style.display = 'none';
     }
 }
 
@@ -154,7 +171,9 @@ function simulationLoop() {
     if (!isRunning || !simulator) return;
 
     try {
-        const stepSize = isRunning ? 100000 : 0;
+        // Balanced throttling: 5,000 instructions per frame (~300k/sec)
+        // Provides visible blink rate while remaining light on CPU.
+        const stepSize = isRunning ? 5000 : 0;
         if (stepSize > 0) {
             simulator.step(stepSize);
             totalCycles += stepSize;
@@ -205,10 +224,10 @@ function stopSimulation() {
     boot(); // Reload
 }
 
-elements.btnStart.onclick = startSimulation;
-elements.btnPause.onclick = pauseSimulation;
-elements.btnStep.onclick = stepSimulation;
-elements.btnStop.onclick = stopSimulation;
-elements.btnGdb.onclick = toggleGdb;
+if (elements.btnStart) elements.btnStart.onclick = startSimulation;
+if (elements.btnPause) elements.btnPause.onclick = pauseSimulation;
+if (elements.btnStep) elements.btnStep.onclick = stepSimulation;
+if (elements.btnStop) elements.btnStop.onclick = stopSimulation;
+if (elements.btnGdb) elements.btnGdb.onclick = toggleGdb;
 
 boot();

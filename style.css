@@ -305,12 +305,13 @@ h5 {
 /* Toolbar (Stats + Controls) */
 .sandbox-toolbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     align-items: center;
     background: #f8f9fa;
     border: 1px solid #ddd;
-    padding: 0.75em 1.5em;
-    gap: 1em;
+    padding: 1em 1.5em;
+    gap: 1.5em;
     box-shadow: 4px 4px 0px #000;
 }
 
@@ -323,13 +324,15 @@ h5 {
 
 .sandbox-stats-compact {
     display: flex;
-    gap: 2em;
+    gap: 1.5em;
     font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
 }
 
 .stat-item {
     display: flex;
     flex-direction: column;
+    min-width: 140px;
 }
 
 .stat-label {
@@ -340,20 +343,38 @@ h5 {
 }
 
 .stat-value {
-    font-size: 1.1em;
+    font-size: 1.15em;
     color: #000;
     font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-align: left;
 }
 
 .sandbox-controls-compact {
     display: flex;
-    gap: 0.5em;
+    gap: 0.75em;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .sandbox-controls-compact {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sandbox-toolbar {
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 .sandbox-controls-compact .button {
     height: 2.8em;
     line-height: 2.8em;
     padding: 0 1.25em;
+    font-size: 0.75em;
 }
 
 /* Debugger Panel */
@@ -1709,4 +1730,46 @@ table td code {
     border-radius: 4px;
     font-family: 'Roboto Mono', monospace;
     font-size: 0.9em;
+}
+
+/* GDB Status Bar */
+.gdb-status-bar {
+    background: #1a1a1a;
+    color: #888;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    border-top: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gdb-status-bar.active {
+    color: #0f0;
+}
+
+.gdb-status-bar.active::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #0f0;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #0f0;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
