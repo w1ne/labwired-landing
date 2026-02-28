@@ -3,16 +3,16 @@
 
 <head>
     <!-- COMPONENT: analytics -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-T4J4MDP5GP');
-</script>
-<!-- END COMPONENT: analytics -->
+        gtag('config', 'G-T4J4MDP5GP');
+    </script>
+    <!-- END COMPONENT: analytics -->
     <title>The Ghost in the CI: Why Embedded Tests Flake - LabWired</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -30,25 +30,50 @@
       "description": "Stop flaky firmware tests with deterministic simulation."
     }
     </script>
+    <style>
+        .illustration {
+            margin: 2em 0;
+            background: #111;
+            padding: 1.5em;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+        }
+
+        .illustration svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .caption {
+            margin-top: 1em;
+            font-size: 0.9em;
+            color: #888;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
 </head>
+
 
 <body class="is-preload">
     <div id="page-wrapper">
         <!-- COMPONENT: header -->
-<header id="header" data-nosnippet>
-    <h1 id="logo"><a href="../index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
-    <nav id="nav">
-        <ul>
-            <li><a href="../index.html#four">Features</a></li>
-            <li><a href="../sandbox.html">Live Sandbox</a></li>
-            <li><a href="../resources.html">Resources</a></li>
-            <li><a href="../docs.html">Docs</a></li>
-            <li><a href="#footer">Contact</a></li>
-        </ul>
-    </nav>
-    <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
-</header>
-<!-- END COMPONENT: header -->
+        <header id="header" data-nosnippet>
+            <h1 id="logo"><a href="../index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html#four">Features</a></li>
+                    <li><a href="../sandbox.html">Live Sandbox</a></li>
+                    <li><a href="../resources.html">Resources</a></li>
+                    <li><a href="../docs.html">Docs</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+        </header>
+        <!-- END COMPONENT: header -->
 
         <section id="main" class="wrapper style1">
             <div class="container">
@@ -61,40 +86,189 @@
                     <p><em>Keywords: flaky firmware tests, deterministic embedded simulation, HIL CI/CD, race
                             conditions.</em></p>
 
-                    <h3>The 2:00 AM Notification</h3>
-                    <p>We've all been there. You pushed a critical fix, the CI ran for 40 minutes, and then... a red
-                        checkmark. But when you re-run the job, it passes. You've just encountered a <strong>flaky
-                            firmware test</strong>, the single greatest drain on embedded engineering productivity.</p>
+                    <h3>The Ghost 150 Million Miles Away</h3>
+                    <p>In 1997, the Mars Pathfinder started mysteriously rebooting. The culprit wasn't a broken
+                        component, but a <strong>priority inversion</strong>—a classic "ghost in the machine."</p>
 
-                    <h3>Why Your Firmware CI is Flaky</h3>
-                    <p>In the world of embedded systems, flakiness is usually a silent messenger for
-                        <strong>timing-dependent bugs</strong> or <strong>hardware resource contention</strong>.
+                    <div class="illustration">
+                        <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="800" height="200" fill="#1a1a1a" rx="8" />
+                            <!-- Lanes -->
+                            <text x="20" y="50" fill="#aaa" font-family="monospace" font-size="12">HI PRIO
+                                (bc_dist)</text>
+                            <text x="20" y="100" fill="#aaa" font-family="monospace" font-size="12">MED PRIO
+                                (comm)</text>
+                            <text x="20" y="150" fill="#aaa" font-family="monospace" font-size="12">LOW PRIO
+                                (ASI/MET)</text>
+
+                            <!-- Timeline -->
+                            <line x1="150" y1="30" x2="150" y2="170" stroke="#444" stroke-dasharray="4" />
+                            <line x1="750" y1="30" x2="750" y2="170" stroke="#444" stroke-dasharray="4" />
+
+                            <!-- Task execution -->
+                            <!-- Low prio starts and locks mutex -->
+                            <rect x="160" y="140" width="100" height="20" fill="#4a5a6a" rx="2" />
+                            <text x="165" y="155" fill="#fff" font-size="10">Locks Mutex</text>
+
+                            <!-- Medium prio preempts -->
+                            <rect x="260" y="90" width="300" height="20" fill="#cc6633" rx="2" />
+                            <text x="350" y="105" fill="#fff" font-size="10">Preempts Low Prio</text>
+
+                            <!-- High prio waits -->
+                            <rect x="280" y="40" width="450" height="20" fill="#99ccff" rx="2" fill-opacity="0.3"
+                                stroke="#99ccff" />
+                            <text x="300" y="55" fill="#99ccff" font-size="10">WAITS FOR MUTEX (Blocked by Med
+                                Prio)</text>
+
+                            <!-- Watchdog Reset -->
+                            <line x1="740" y1="20" x2="740" y2="180" stroke="#ff4444" stroke-width="2" />
+                            <text x="650" y="195" fill="#ff4444" font-size="12" font-weight="bold">WATCHDOG RESET</text>
+                        </svg>
+                        <p class="caption">Simplified Priority Inversion: The medium-priority task runs indefinitely,
+                            accidentally blocking the high-priority task from ever getting the resource it needs.</p>
+                    </div>
+
+                    <p>A meteorological task (Low Prio) held a shared lock. A communications task (Med Prio) preempted
+                        it and ran so long that the critical Bus Manager (High Prio) could never start. The watchdog
+                        timer, sensing the stall, rebooted the entire system. Without <strong>deterministic
+                            execution</strong>, these timing-dependent bugs are almost impossible to catch before they
+                        reach their destination.</p>
+
                     </p>
 
-                    <h4>1. The HIL Bottleneck</h4>
-                    <p>Testing on real Hardware-in-the-Loop (HIL) rigs is expensive and intrinsically non-deterministic.
-                        Network jitter, signal noise, and power-up variability can all cause a test to fail for reasons
-                        unrelated to your code.</p>
 
-                    <h4>2. The "Real-Time" Fallacy</h4>
-                    <p>Most simulators try to run "as fast as possible" or "in real-time." If your host PC is under
-                        heavy load, the simulator might miss a clock cycle that your firmware expects, leading to a race
-                        condition that only appears intermittently.</p>
 
-                    <h3>The Solution: Bit-Accurate Determinism</h3>
-                    <p>To kill flakiness, you must separate <strong>simulated time</strong> from <strong>real-world
-                            time</strong>. LabWired's engine uses a <strong>lockstep stepping mechanism</strong>. This
-                        ensures that every instruction execution, every DMA transfer, and every interrupt is
-                        synchronized to a global simulation clock.</p>
+                    <h3>The Mechanics: Why Firmware Flakes</h3>
+                    <p>Flakiness is often a symptom of <strong>race conditions</strong>—bugs that only appear when
+                        specific events happen in a precise, microsecond-aligned order. The <strong>Therac-25</strong>
+                        tragedy is the ultimate example: a race condition in the control software allowed a high-energy
+                        beam to fire without a safety shield, only if the operator was "too fast" with their keyboard
+                        commands.</p>
 
-                    <h3>Benefits of Virtual HIL</h3>
+                    <div class="illustration">
+                        <svg viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="800" height="180" fill="#1a1a1a" rx="8" />
+
+                            <!-- State line -->
+                            <line x1="50" y1="90" x2="750" y2="90" stroke="#333" stroke-width="2" />
+
+                            <!-- Safe Window -->
+                            <rect x="50" y="70" width="300" height="40" fill="#2d5a27" fill-opacity="0.3" />
+                            <text x="60" y="60" fill="#2d5a27" font-size="12">NORMAL OPERATION</text>
+
+                            <!-- Race Condition Window -->
+                            <rect x="350" y="70" width="50" height="40" fill="#ff4444" fill-opacity="0.6" />
+                            <text x="350" y="60" fill="#ff4444" font-size="12" font-weight="bold">RACE WINDOW (<
+                                    8s)</text>
+
+                                    <!-- Operator Input -->
+                                    <path d="M 375 150 L 375 115" stroke="#fff" stroke-width="2"
+                                        marker-end="url(#arrow)" />
+                                    <text x="320" y="170" fill="#fff" font-size="10">Fast Operator Input (Data Entry
+                                        Complete)</text>
+
+                                    <!-- Collision -->
+                                    <circle cx="375" cy="90" r="8" fill="#ff4444">
+                                        <animate attributeName="r" values="8;12;8" dur="1s" repeatCount="indefinite" />
+                                    </circle>
+
+                                    <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3"
+                                            orient="auto" markerUnits="strokeWidth">
+                                            <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
+                                        </marker>
+                                    </defs>
+                        </svg>
+                        <p class="caption">The Race Condition: If the operator corrected a setting within 8 seconds, the
+                            software would sometimes fail to update the hardware state correctly, leading to an
+                            unshielded beam.</p>
+                    </div>
+
+                    <h4>1. The "Real-Time" Fallacy</h4>
+                    <p>Conventional testing relies on real-world time. If your CI runner doesn't happen to hit that
+                        exact microsecond window, the test passes. You get a green check, but the bug is still there.
+                        This is the <strong>Real-Time Fallacy</strong>: thinking that testing in "real-time" is the same
+                        as testing all timing possibilities.</p>
+
+                    <h4>2. Non-Deterministic Jitter</h4>
+                    <p>Because host PCs have varying background loads, a test that passes at 10:00 AM might fail at 2:00
+                        PM simply because of a background update. This <strong>jitter</strong> masks real bugs and
+                        turns CI into a game of chance. To catch a Therac-25 style bug, you need to control time, not
+                        just watch it.</p>
+
+
+
+
+                    <h3>The Solution: Eliminating the Drift</h3>
+                    <p>To kill flakiness, we enforce a strict separation between <strong>simulated time</strong> and
+                        <strong>host time</strong>. This isn't just a technical preference; it’s a lesson learned from
+                        disasters like the 1991 <strong>Patriot Missile failure</strong>. A tiny rounding error in a
+                        24-bit representation of time accumulated over 100 hours into a 0.34-second lag—enough to miss
+                        its target by half a kilometer.
+                    </p>
+
+                    <div class="illustration">
+                        <svg viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="800" height="160" fill="#1a1a1a" rx="8" />
+
+                            <!-- Legend -->
+                            <rect x="580" y="20" width="10" height="10" fill="#444" />
+                            <text x="600" y="30" fill="#aaa" font-size="10">Simulated Time (Ideal)</text>
+                            <rect x="580" y="40" width="10" height="10" fill="#99ccff" />
+                            <text x="600" y="50" fill="#aaa" font-size="10">System Time (Drifting)</text>
+
+                            <!-- Plot -->
+                            <path d="M 50 130 L 750 130" stroke="#333" stroke-width="2" />
+
+                            <!-- Ideal line -->
+                            <line x1="50" y1="130" x2="750" y2="30" stroke="#444" stroke-width="2"
+                                stroke-dasharray="4" />
+
+                            <!-- Drifting line -->
+                            <path d="M 50 130 Q 400 90 750 60" fill="none" stroke="#99ccff" stroke-width="3" />
+
+                            <!-- Drift marker -->
+                            <line x1="750" y1="30" x2="750" y2="60" stroke="#ff4444" stroke-width="2" />
+                            <text x="680" y="50" fill="#ff4444" font-size="12" font-weight="bold">0.34s DRIFT</text>
+
+                            <text x="50" y="150" fill="#aaa" font-size="10">0 HOURS</text>
+                            <text x="700" y="150" fill="#aaa" font-size="10">100 HOURS</text>
+                        </svg>
+                        <p class="caption">The Accumulation of Error: In the Patriot system, a precision error of
+                            0.0001% per step was negligible in a 1-minute test, but fatal after 100 hours of continuous
+                            operation.</p>
+                    </div>
+
+                    <p>LabWired solves this by using a <strong>lockstep stepping mechanism</strong>. Instead of
+                        relying on a "real-time" clock that can drift or be interrupted by host OS noise, every
+                        instruction and hardware interrupt is synchronized to a fixed global simulation clock. There is
+                        zero drift because time only advances when the core steps.</p>
+
+                    <p>For high-reliability targets, our <strong>Shadow Engine</strong> executes two identical CPU
+                        instances in parallel, performing a 128-bit parity check after every single instruction. If a
+                        precision drift—or a priority inversion—starts to manifest, the simulation halts instantly with
+                        a deterministic snapshot of the failure state.</p>
+
+
+
+
+                    <h3>The Virtual Replica: Preventing the Next Ghost</h3>
+                    <p>In 1997, it took NASA three weeks of debugging on an exact terrestrial replica of the Pathfinder
+                        to find the priority inversion. In 2026, LabWired brings that "Virtual Replica" capability to
+                        every developer's local environment and CI pipeline.</p>
                     <ul>
-                        <li><strong>90% reduction in CI flakiness</strong>.</li>
-                        <li><strong>Instant parallelization</strong>: Run 50 tests simultaneously on a headless server.
-                        </li>
-                        <li><strong>Deep Debugging</strong>: Step backward through a simulation trace to find the root
-                            cause of a race condition.</li>
+                        <li><strong>Deterministic CI Gates</strong>: Stop relying on wall-clock "luck." By enforcing
+                            lockstep execution, you ensure that if a timing bug exists—like the Therac-25 race
+                            condition—it is caught consistently, not intermittently.</li>
+                        <li><strong>Signal-Level Observability</strong>: When a simulation halts, you don't just get a
+                            log; you get a cycle-accurate <strong>VCD trace</strong>. Analyze bus contention and signal
+                            shuffling as if you had a logic analyzer attached to the silicon.</li>
+                        <li><strong>Hardened Regression Testing</strong>: Scale your validation across 50+ headless
+                            runners. Test for 100+ hour "long-run" drifts like the Patriot Missile Case in just minutes
+                            of simulated time.</li>
                     </ul>
+
+
 
                     <footer>
                         <ul class="actions special">
@@ -106,20 +280,21 @@
         </section>
 
         <!-- COMPONENT: footer -->
-<footer id="footer" data-nosnippet>
-    <ul class="icons">
-        <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
-                    class="label">GitHub</span></a></li>
-        <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
-        </li>
-    </ul>
-    <ul class="copyright">
-        <li>&copy; LabWired Inc. All rights reserved.</li>
-        <li><a href="https://labwired.com">LabWired.com</a></li>
-        <li><a href="https://docs.labwired.com">Technical Docs</a></li>
-    </ul>
-</footer>
-<!-- END COMPONENT: footer -->
+        <footer id="footer" data-nosnippet>
+            <ul class="icons">
+                <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
+                            class="label">GitHub</span></a></li>
+                <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span
+                            class="label">Email</span></a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; LabWired Inc. All rights reserved.</li>
+                <li><a href="https://labwired.com">LabWired.com</a></li>
+                <li><a href="https://docs.labwired.com">Technical Docs</a></li>
+            </ul>
+        </footer>
+        <!-- END COMPONENT: footer -->
     </div>
     <script src="../script.js"></script>
 </body>
