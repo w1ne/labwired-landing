@@ -79,11 +79,20 @@
         <section id="banner">
             <div class="content">
                 <header>
-                    <h2>Intelligent Hardware<br />
-                        Connectivity</h2>
-                    <p>LabWired is an advanced <strong>hardware-in-the-loop</strong> simulation<br />
-                        environment for autonomous agents.</p>
+                    <p class="eyebrow">Protocol-first firmware simulation</p>
+                    <h2>Deterministic firmware simulation with agentic board ingestion</h2>
+                    <p>LabWired runs firmware against reproducible virtual hardware and uses the <a href="https://foundry.labwired.com" target="_blank" rel="noopener noreferrer">LabWired
+                            Foundry</a>, our agentic board-ingestion pipeline, to turn board documentation into new
+                        simulation targets.</p>
                 </header>
+                <ul class="actions special hero-actions">
+                    <li><a href="docs.html" class="button primary">Read Docs</a></li>
+                    <li><a href="https://cal.com/andriishylenko/30min" target="_blank" class="button">Book Demo</a></li>
+                </ul>
+                <div class="hero-proof">
+                    <span><strong>Deterministic:</strong> same firmware + same system config = same result</span>
+                    <span><strong>Workflow:</strong> local CLI, CI artifacts, debugger integration</span>
+                </div>
                 <span class="image fit main">
                     <div class="css-graphic graphic-1"></div>
                 </span>
@@ -107,7 +116,7 @@
             <div class="container">
                 <header class="major">
                     <h2>How It Works</h2>
-                    <p>From Datasheet to Digital Twin in 4 Steps</p>
+                    <p>From board documentation to deterministic simulation in 4 steps</p>
                 </header>
 
                 <div class="process-flow">
@@ -117,9 +126,9 @@
                             <i class="fa-solid fa-file-pdf"></i>
                         </div>
                         <div class="process-content">
-                            <h3>1. The Input</h3>
-                            <p>Simply upload your component datasheets (PDF) and schematic diagrams. No manual coding
-                                required.</p>
+                            <h3>1. Submit Board Documentation</h3>
+                            <p>Start with the board docs you already have: datasheets, register descriptions, memory
+                                maps, and interface requirements.</p>
                         </div>
                     </div>
 
@@ -129,21 +138,21 @@
                             <i class="fa-solid fa-microchip"></i>
                         </div>
                         <div class="process-content">
-                            <h3>2. Agentic Ingestion</h3>
-                            <p>Our VLM & LLM agents analyze the documents, extracting register maps, pin configs, and
-                                logic behavior.</p>
+                            <h3>2. Foundry Synthesizes a Target</h3>
+                            <p>The LabWired Foundry ingests the hardware description, extracts the simulation-relevant
+                                structure, and prepares a new board or peripheral target for verification.</p>
                         </div>
                     </div>
 
                     <!-- Step 3: Digital Twin -->
                     <div class="process-step">
                         <div class="process-icon icon major">
-                            <i class="fa-brands fa-docker"></i>
+                            <i class="fa-solid fa-shield-check"></i>
                         </div>
                         <div class="process-content">
-                            <h3>3. Dockerized Twin</h3>
-                            <p>A completely encapsulated Docker container is generated, simulating the hardware
-                                component with bit-level accuracy.</p>
+                            <h3>3. Verify and Export Artifacts</h3>
+                            <p>Foundry runs hosted verification, produces artifacts and run results, and exports the
+                                generated target so it can move into your local toolchain and CI workflow.</p>
                         </div>
                     </div>
 
@@ -153,9 +162,9 @@
                             <i class="fa-solid fa-code"></i>
                         </div>
                         <div class="process-content">
-                            <h3>4. Build & Debug</h3>
-                            <p>Connect your agent to the simulation using standard protocols. Debug seamlessly in VS
-                                Code.</p>
+                            <h3>4. Run Locally and Debug Deterministically</h3>
+                            <p>Use the exported target with the open LabWired runtime to run firmware locally, collect
+                                deterministic artifacts, and debug the resulting system behavior in your normal tools.</p>
 
                             <!-- VS Code Mockup -->
                             <div class="vscode-window">
@@ -165,17 +174,16 @@
                                     <div class="vscode-dot dot-green"></div>
                                 </div>
                                 <div class="vscode-body">
-                                    <span class="code-line"><span class="comment">// Connecting to Digital
-                                            Twin...</span></span>
-                                    <span class="code-line"><span class="kw">let</span> device = <span
-                                            class="fn">Device::connect</span>(<span
-                                            class="str">"tcp://localhost:8080"</span>);</span>
-                                    <span class="code-line"><span class="kw">await</span> device.<span
-                                            class="fn">write_register</span>(0x1A, 0xFF);</span>
-                                    <span class="code-line"><span class="kw">let</span> status = <span
-                                            class="kw">await</span> device.<span class="fn">read_status</span>();</span>
-                                    <span class="code-line"><span class="fn">assert_eq!</span>(status, <span
-                                            class="str">"READY"</span>);</span>
+                                    <span class="code-line"><span class="comment">// Run generated target in local
+                                            CI...</span></span>
+                                    <span class="code-line"><span class="kw">labwired</span> test <span
+                                            class="str">--script examples/ci/uart-ok.yaml</span></span>
+                                    <span class="code-line"><span class="comment">// Collect deterministic
+                                            artifacts...</span></span>
+                                    <span class="code-line"><span class="kw">cat</span> <span
+                                            class="str">out/artifacts/result.json</span></span>
+                                    <span class="code-line"><span class="fn">assert_eq!</span>(result.status, <span
+                                            class="str">"pass"</span>);</span>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +199,7 @@
             <div class="container">
                 <header class="major">
                     <h2>Accelerate Firmware Development</h2>
-                    <p>Empower your team with the tools to build reliable embedded systems faster.</p>
+                    <p>Move firmware validation out of the lab and into repeatable developer workflows.</p>
                 </header>
                 <div class="box alt">
                     <div class="row gtr-uniform">
@@ -214,7 +222,7 @@
                 </div>
                 <footer class="major">
                     <ul class="actions special">
-                        <li><a href="docs.html" class="button primary">Get Started</a></li>
+                        <li><a href="docs.html" class="button primary">Read Docs</a></li>
                         <li><a href="https://cal.com/andriishylenko/30min" target="_blank" class="button">Book Demo</a>
                         </li>
                     </ul>
