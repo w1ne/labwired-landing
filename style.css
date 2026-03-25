@@ -223,21 +223,21 @@ h5,
 h6 {
     color: var(--lw-black);
     font-family: 'Outfit', sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: -0.02em;
-    line-height: 1.25em;
+    line-height: 1.15em;
     margin: 0 0 1em 0;
     text-transform: none;
 }
 
 h1 {
     font-size: 2.25em;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
 }
 
 h2 {
     font-size: 1.75em;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.03em;
 }
 
 h3 {
@@ -599,7 +599,7 @@ h6 {
 /* Button */
 .button {
     appearance: none;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    transition: all 0.1s ease;
     background-color: var(--lw-bg);
     border: var(--lw-border);
     border-radius: 8px;
@@ -666,6 +666,7 @@ h6 {
     border-radius: 0;
     padding: 0;
     border: none;
+    box-shadow: none;
 }
 
 /* Icon */
@@ -730,8 +731,7 @@ footer.major .actions li {
     display: flex;
     justify-content: space-between;
     padding: 0 3em;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: var(--lw-border);
     backdrop-filter: blur(10px);
 }
 
@@ -1358,25 +1358,26 @@ footer.major .actions li {
 .process-icon {
     flex: 0 0 100px;
     height: 100px;
-    background: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 12px;
+    background: var(--lw-bg);
+    border: var(--lw-border);
+    border-radius: var(--lw-radius);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2.5em;
     z-index: 2;
     position: relative;
-    box-shadow: 5px 5px 0px rgba(0, 0, 0, 1);
+    box-shadow: var(--lw-shadow);
 }
 
 .process-content {
     margin-left: 5em;
     flex: 1;
-    background: #f8f9fa;
+    background: var(--lw-bg);
     padding: 2em;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--lw-radius);
+    border: var(--lw-border);
+    box-shadow: var(--lw-shadow);
     position: relative;
     text-align: left;
 }
@@ -1528,9 +1529,9 @@ footer.major .actions li {
     background: #1e1e1e;
     color: #d4d4d4;
     font-family: 'Roboto Mono', 'Consolas', monospace;
-    border-radius: 8px;
+    border-radius: var(--lw-radius);
     overflow: hidden;
-    box-shadow: 5px 5px 0px #000000;
+    box-shadow: var(--lw-shadow-lg);
     font-size: 0.85em;
     text-align: left;
     margin-top: 1.5em;
