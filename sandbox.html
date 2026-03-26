@@ -16,6 +16,8 @@
     <title>LabWired - Live Sandbox</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta http-equiv="refresh" content="0; url=/playground/" />
+    <link rel="canonical" href="https://labwired.com/playground/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
@@ -34,7 +36,7 @@
             <nav id="nav">
                 <ul>
                     <li><a href="index.html#four">Features</a></li>
-                    <li><a href="sandbox.html">Live Sandbox</a></li>
+                    <li><a href="/playground/">Playground</a></li>
                     <li><a href="resources.html">Resources</a></li>
                     <li><a href="docs.html">Docs</a></li>
                     <li><a href="#footer">Contact</a></li>
@@ -48,78 +50,12 @@
         <div id="main" class="wrapper style1">
             <div class="sandbox-container">
                 <header class="major">
-                    <h2>Live Sandbox</h2>
-                    <p>High-Fidelity MCU Simulation & Debugger</p>
+                    <h2>Opening Playground</h2>
+                    <p>Redirecting to the full LabWired playground.</p>
                 </header>
 
-                <div id="loading-overlay" class="sandbox-loading">
-                    <div class="spinner"></div>
-                    <p>Initializing WASM Core...</p>
-                </div>
-
-                <div class="sandbox-compact-layout">
-                    <!-- Visualization Top -->
-                    <div class="sandbox-visual-compact">
-                        <div class="hw-diagram">
-                            <img src="demo/assets/diagram.png" alt="Hardware Wiring Diagram">
-                            <div id="virtualLed" class="led-glow"></div>
-                        </div>
-                    </div>
-
-                    <!-- Metrics & Controls Middle -->
-                    <div class="sandbox-toolbar">
-                        <div class="sandbox-stats-compact">
-                            <div class="stat-item">
-                                <span class="stat-label">PC</span>
-                                <span id="pcValue" class="stat-value">0x00000000</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Cycles</span>
-                                <span id="cycleCount" class="stat-value">0</span>
-                            </div>
-                        </div>
-                        <div class="sandbox-controls-compact">
-                            <button id="btnStart" class="button primary small" disabled><i class="fa-solid fa-play"></i>
-                                Run</button>
-                            <button id="btnPause" class="button small" disabled><i class="fa-solid fa-pause"></i>
-                                Pause</button>
-                            <button id="btnStep" class="button small" disabled><i class="fa-solid fa-forward-step"></i>
-                                Step</button>
-                            <button id="btnStop" class="button small" disabled><i class="fa-solid fa-rotate-left"></i>
-                                Reset</button>
-                        </div>
-                    </div>
-
-                    <!-- Debugger Bottom -->
-                    <div class="sandbox-debugger-compact">
-                        <div class="db-row">
-                            <div class="db-section trace">
-                                <h3><i class="fa-solid fa-terminal"></i> Instruction Trace</h3>
-                                <div id="disasm" class="db-code-view">
-                                    Fetching next instruction...
-                                </div>
-                            </div>
-                        </div>
-                        <div class="db-row grid">
-                            <div class="db-section registers">
-                                <h3><i class="fa-solid fa-microchip"></i> Registers</h3>
-                                <div id="registers" class="db-reg-grid">
-                                    <!-- Dynamic -->
-                                </div>
-                            </div>
-                            <div class="db-section memory">
-                                <h3><i class="fa-solid fa-layer-group"></i> Stack Area</h3>
-                                <div id="memory" class="db-mem-view">
-                                    <!-- Dynamic Hex -->
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
                 <footer class="major" style="margin-top: 2em; font-size: 0.8em; opacity: 0.7;">
-                    <p>Running production ARM binary on a deterministic Cortex-M3 core.</p>
+                    <p>This legacy page now redirects to the interactive playground.</p>
                 </footer>
             </div>
         </div>
@@ -145,8 +81,10 @@
     </div>
 
     <!-- Scripts -->
+    <script>
+        window.location.replace('/playground/');
+    </script>
     <script src="script.js"></script>
-    <script type="module" src="sandbox-app.js"></script>
 
 </body>
 
