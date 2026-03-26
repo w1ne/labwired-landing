@@ -1017,6 +1017,63 @@ footer.major .actions li {
     color: var(--lw-bg);
 }
 
+.install-help-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    margin-top: 0.8em;
+}
+
+.install-help {
+    flex: 1 1 14em;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    background: #fbfbfb;
+}
+
+.install-help[open] {
+    background: #f5f5f5;
+    border-color: var(--lw-black);
+}
+
+.install-help summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.55em 0.8em;
+    font-family: 'Roboto Mono', 'Consolas', monospace;
+    font-size: 0.68em;
+    color: var(--lw-black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75em;
+}
+
+.install-help summary::-webkit-details-marker {
+    display: none;
+}
+
+.install-help summary::after {
+    content: '+';
+    font-size: 1.15em;
+    line-height: 1;
+}
+
+.install-help[open] summary::after {
+    content: '−';
+}
+
+.install-help-windows summary {
+    background: #fff0df;
+}
+
+.install-help p {
+    margin: 0;
+    padding: 0 0.8em 0.8em;
+    font-size: 0.72em;
+    line-height: 1.55;
+    color: var(--lw-gray);
+}
+
 @media screen and (max-width: 736px) {
     .install-block {
         max-width: 100%;
@@ -1024,6 +1081,10 @@ footer.major .actions li {
 
     .install-cmd code {
         font-size: 0.75em;
+    }
+
+    .install-help {
+        flex-basis: 100%;
     }
 }
 
