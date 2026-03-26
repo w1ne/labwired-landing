@@ -20,12 +20,12 @@
 <!-- END COMPONENT: analytics -->
     <title>LabWired - Deterministic Embedded Firmware Simulation & HIL CI/CD</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
     <meta name="description"
         content="LabWired is a deterministic hardware simulation platform for firmware CI/CD. Create MCU digital twins (STM32, RISC-V) for bit-accurate verification and HIL replacement." />
     <meta name="keywords"
         content="deterministic embedded simulation, firmware CI/CD, STM32 simulator, MCU digital twin, HIL replacement, virtual hardware validation" />
-    <meta name="version" content="v0.12.5-fix-docs-layout" />
+    <meta name="version" content="v0.13.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <noscript>
@@ -45,11 +45,6 @@
         "@type": "Offer",
         "price": "0.00",
         "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "1"
       }
     }
     </script>
@@ -65,7 +60,7 @@
     <nav id="nav">
         <ul>
             <li><a href="#four">Features</a></li>
-            <li><a href="sandbox.html">Live Sandbox</a></li>
+            <li><a href="https://foundry.labwired.com" target="_blank" rel="noopener noreferrer">Playground</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="docs.html">Docs</a></li>
             <li><a href="#footer">Contact</a></li>
@@ -79,19 +74,18 @@
         <section id="banner">
             <div class="content">
                 <header>
-                    <p class="eyebrow">Protocol-first firmware simulation</p>
-                    <h2>Deterministic firmware simulation with agentic board ingestion</h2>
-                    <p>LabWired runs firmware against reproducible virtual hardware and uses the <a href="https://foundry.labwired.com" target="_blank" rel="noopener noreferrer">LabWired
-                            Foundry</a>, our agentic board-ingestion pipeline, to turn board documentation into new
-                        simulation targets.</p>
+                    <p class="eyebrow">Open-source embedded simulation</p>
+                    <h2>Test your firmware without hardware</h2>
+                    <p>LabWired creates deterministic virtual MCUs from board documentation so you can validate firmware on every commit — no physical boards, no flaky HIL rigs. Powered by the <a href="https://foundry.labwired.com" target="_blank" rel="noopener noreferrer">LabWired
+                            Foundry</a> ingestion pipeline.</p>
                 </header>
                 <ul class="actions special hero-actions">
-                    <li><a href="docs.html" class="button primary">Read Docs</a></li>
+                    <li><a href="https://foundry.labwired.com/#/catalog" target="_blank" rel="noopener noreferrer" class="button primary">Try Foundry Playground</a></li>
                     <li><a href="https://cal.com/andriishylenko/30min" target="_blank" class="button">Book Demo</a></li>
                 </ul>
                 <div class="hero-proof">
-                    <span><strong>Deterministic:</strong> same firmware + same system config = same result</span>
-                    <span><strong>Workflow:</strong> local CLI, CI artifacts, debugger integration</span>
+                    <span><strong>Deterministic:</strong> same firmware + same config = same result, every time</span>
+                    <span><strong>Works with:</strong> STM32, RISC-V · C, C++, Rust · Linux, macOS</span>
                 </div>
                 <span class="image fit main">
                     <div class="css-graphic graphic-1"></div>
@@ -109,6 +103,35 @@
                         href="docs.html">See full install guide →</a></div>
             </div>
             <a href="#four" class="goto-next scrolly">Next</a>
+        </section>
+
+        <!-- Features -->
+        <section id="four" class="wrapper style1 special fade-up">
+            <div class="container">
+                <header class="major">
+                    <h2>What QEMU and HIL Rigs Can't Do</h2>
+                    <p>LabWired generates board-accurate simulation targets from documentation — no manual modeling, no shared hardware.</p>
+                </header>
+                <div class="box alt">
+                    <div class="row gtr-uniform">
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon solid alt major fa-file-import"></span>
+                            <h3>Instant Digital Twins</h3>
+                            <p>Generate operational peripheral simulations directly from datasheets.</p>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon solid alt major fa-check-circle"></span>
+                            <h3>Hardware in CI/CD</h3>
+                            <p>Run full firmware validation suites on every commit without physical boards.</p>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+                            <span class="icon solid alt major fa-cogs"></span>
+                            <h3>Run Any Binary</h3>
+                            <p>Validate production executables (C, C++, Rust) against bit-accurate logic.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- How It Works -->
@@ -174,16 +197,12 @@
                                     <div class="vscode-dot dot-green"></div>
                                 </div>
                                 <div class="vscode-body">
-                                    <span class="code-line"><span class="comment">// Run generated target in local
-                                            CI...</span></span>
-                                    <span class="code-line"><span class="kw">labwired</span> test <span
-                                            class="str">--script examples/ci/uart-ok.yaml</span></span>
-                                    <span class="code-line"><span class="comment">// Collect deterministic
-                                            artifacts...</span></span>
-                                    <span class="code-line"><span class="kw">cat</span> <span
-                                            class="str">out/artifacts/result.json</span></span>
-                                    <span class="code-line"><span class="fn">assert_eq!</span>(result.status, <span
-                                            class="str">"pass"</span>);</span>
+                                    <span class="code-line"><span class="comment"># Run firmware against the generated board target</span></span>
+                                    <span class="code-line"><span class="kw">$</span> labwired test <span class="str">--script examples/ci/uart-ok.yaml</span></span>
+                                    <span class="code-line">&nbsp;</span>
+                                    <span class="code-line"><span class="fn">✓</span> UART TX matches expected output</span>
+                                    <span class="code-line"><span class="fn">✓</span> GPIO toggles within 10ms deadline</span>
+                                    <span class="code-line"><span class="str">2 passed</span>, 0 failed — artifacts → out/results.json</span>
                                 </div>
                             </div>
                         </div>
@@ -192,38 +211,13 @@
             </div>
         </section>
 
-
-
-        <!-- Four -->
-        <section id="four" class="wrapper style1 special fade-up">
+        <!-- CTA -->
+        <section class="wrapper style1 special fade-up">
             <div class="container">
-                <header class="major">
-                    <h2>Accelerate Firmware Development</h2>
-                    <p>Move firmware validation out of the lab and into repeatable developer workflows.</p>
-                </header>
-                <div class="box alt">
-                    <div class="row gtr-uniform">
-                        <section class="col-4 col-6-medium col-12-xsmall">
-                            <span class="icon solid alt major fa-file-import"></span>
-                            <h3>Instant Digital Twins</h3>
-                            <p>Generate operational peripheral simulations directly from datasheets.</p>
-                        </section>
-                        <section class="col-4 col-6-medium col-12-xsmall">
-                            <span class="icon solid alt major fa-check-circle"></span>
-                            <h3>Hardware in CI/CD</h3>
-                            <p>Run full firmware validation suites on every commit without physical boards.</p>
-                        </section>
-                        <section class="col-4 col-6-medium col-12-xsmall">
-                            <span class="icon solid alt major fa-cogs"></span>
-                            <h3>Run Any Binary</h3>
-                            <p>Validate production executables (C, C++, Rust) against bit-accurate logic.</p>
-                        </section>
-                    </div>
-                </div>
                 <footer class="major">
                     <ul class="actions special">
-                        <li><a href="docs.html" class="button primary">Read Docs</a></li>
-                        <li><a href="https://cal.com/andriishylenko/30min" target="_blank" class="button">Book Demo</a>
+                        <li><a href="docs.html" class="button primary">Get Started</a></li>
+                        <li><a href="https://cal.com/andriishylenko/30min" target="_blank" class="button">Talk to Us</a>
                         </li>
                     </ul>
                 </footer>
