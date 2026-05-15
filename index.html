@@ -1,258 +1,300 @@
-<!DOCTYPE HTML>
-<!--
-	Landed by HTML5 UP (Adapted for LabWired)
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- COMPONENT: analytics -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
-<script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Analytics — preserved from previous production landing -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4J4MDP5GP"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-T4J4MDP5GP');
-</script>
-<!-- END COMPONENT: analytics -->
-    <title>LabWired - Deterministic Embedded Firmware Simulation & HIL CI/CD</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description"
-        content="LabWired is a deterministic hardware simulation platform for firmware CI/CD. Create MCU digital twins (STM32, RISC-V) for bit-accurate verification and HIL replacement." />
-    <meta name="keywords"
-        content="deterministic embedded simulation, firmware CI/CD, STM32 simulator, MCU digital twin, HIL replacement, virtual hardware validation" />
-    <meta name="version" content="v0.12.5-fix-docs-layout" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="style.css" />
-    <noscript>
-        <link rel="stylesheet" href="noscript.css" />
-    </noscript>
+  </script>
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "LabWired",
-      "operatingSystem": "Linux, Windows, macOS",
-      "applicationCategory": "DevelopmentTool",
-      "description": "Deterministic hardware simulation platform for firmware CI/CD and bit-accurate MCU verification.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "1"
-      }
+  <title>LabWired — Deterministic embedded firmware simulation, no hardware needed</title>
+  <meta name="description" content="Cycle-accurate embedded firmware simulation in your browser. STM32, RP2040, ESP32, nRF52 — drop your ELF and run. Replace your HIL bench. Drop-in GitHub Action. Open-source core. Free." />
+  <meta name="keywords" content="deterministic embedded simulation, firmware CI/CD, STM32 simulator, RP2040 simulator, ESP32 simulator, nRF52 simulator, MCU digital twin, HIL replacement, virtual hardware validation, ARM Cortex-M, RISC-V, Xtensa" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LabWired — Deterministic firmware simulation" />
+  <meta property="og:description" content="Cycle-accurate ARM Cortex-M / RISC-V / Xtensa firmware in your browser. STM32 · RP2040 · ESP32 · nRF52. Replace your HIL bench." />
+  <meta property="og:url" content="https://labwired.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Structured Data (JSON-LD) — preserved from previous production landing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LabWired",
+    "operatingSystem": "Linux, Windows, macOS",
+    "applicationCategory": "DevelopmentTool",
+    "description": "Deterministic hardware simulation platform for firmware CI/CD and bit-accurate MCU verification. ARM Cortex-M / RISC-V / Xtensa across STM32, RP2040, ESP32, nRF52.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "1"
     }
-    </script>
+  }
+  </script>
 </head>
+<body>
 
-<body class="is-preload landing">
-    <div id="page-wrapper">
-
-        <!-- Header -->
-        <!-- COMPONENT: header -->
-<header id="header" data-nosnippet>
-    <h1 id="logo"><a href="index.html"><i class="fa-solid fa-microchip"></i> LABWIRED</a></h1>
-    <nav id="nav">
-        <ul>
-            <li><a href="#four">Features</a></li>
-            <li><a href="https://foundry.labwired.com/playground/" target="_blank" rel="noopener noreferrer">Playground</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="docs.html">Docs</a></li>
-            <li><a href="#footer">Contact</a></li>
-        </ul>
-    </nav>
-    <a href="#navPanel" class="navPanelToggle"><i class="fa-solid fa-bars"></i></a>
+<header class="chrome">
+  <a class="brand" href="/">
+    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+      <path d="M11 2 4 12h4l-1 6 8-10h-4l1-6z" fill="currentColor" />
+    </svg>
+    <span>LabWired</span>
+  </a>
+  <span class="tagline-chrome">Deterministic firmware simulation</span>
+  <div class="spacer"></div>
+  <nav class="chrome-nav">
+    <a href="https://foundry.labwired.com/playground/">Playground</a>
+    <a href="https://foundry.labwired.com/playground/library.html">Library</a>
+    <a href="https://foundry.labwired.com/playground/ci.html">For CI</a>
+    <a href="https://github.com/w1ne/labwired" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://foundry.labwired.com/playground/" class="cta-pill">Open Playground →</a>
+  </nav>
 </header>
-<!-- END COMPONENT: header -->
 
-        <!-- Banner -->
-        <section id="banner">
-            <div class="content">
-                <header>
-                    <p class="eyebrow">Protocol-first firmware simulation</p>
-                    <h2>Deterministic firmware simulation with agentic board ingestion</h2>
-                    <p>LabWired runs firmware against reproducible virtual hardware. Explore the interactive <a href="https://foundry.labwired.com/playground/" target="_blank" rel="noopener noreferrer">LabWired
-                            Playground</a> or use <a href="https://foundry.labwired.com" target="_blank" rel="noopener noreferrer">LabWired
-                            Foundry</a>, our agentic board-ingestion pipeline, to turn board documentation into new
-                        simulation targets.</p>
-                </header>
-                <ul class="actions special hero-actions">
-                    <li><a href="https://foundry.labwired.com/playground/" target="_blank" rel="noopener noreferrer" class="button primary">Open Playground</a></li>
-                    <li><a href="https://cal.com/andriishylenko/30min" target="_blank" class="button">Book Demo</a></li>
-                </ul>
-                <div class="hero-proof">
-                    <span><strong>Deterministic:</strong> same firmware + same system config = same result</span>
-                    <span><strong>Workflow:</strong> local CLI, CI artifacts, debugger integration</span>
-                </div>
-                <span class="image fit main">
-                    <div class="css-graphic graphic-1"></div>
-                </span>
-            </div>
-            <div class="install-block">
-                <div class="install-title"><i class="fa-solid fa-terminal"></i> Quick Install</div>
-                <div class="install-cmd">
-                    <code id="install-oneliner">curl -fsSL https://labwired.com/install.sh | sh</code>
-                    <button class="copy-btn"
-                        onclick="navigator.clipboard.writeText('curl -fsSL https://labwired.com/install.sh | sh').then(()=>{this.innerHTML='<i class=\'fa-solid fa-check\'></i>';setTimeout(()=>{this.innerHTML='<i class=\'fa-solid fa-copy\'></i>'},1500)})"
-                        title="Copy to clipboard"><i class="fa-solid fa-copy"></i></button>
-                </div>
-                <div class="install-sub">Linux &amp; macOS &nbsp;·&nbsp; x86_64 &amp; ARM64 &nbsp;·&nbsp; <a
-                        href="docs.html">See full install guide →</a></div>
-            </div>
-            <a href="#four" class="goto-next scrolly">Next</a>
-        </section>
-
-        <!-- How It Works -->
-        <section id="how-it-works" class="wrapper style1 special fade-up">
-            <div class="container">
-                <header class="major">
-                    <h2>How It Works</h2>
-                    <p>From board documentation to deterministic simulation in 4 steps</p>
-                </header>
-
-                <div class="process-flow">
-                    <!-- Step 1: Input -->
-                    <div class="process-step">
-                        <div class="process-icon icon major">
-                            <i class="fa-solid fa-file-pdf"></i>
-                        </div>
-                        <div class="process-content">
-                            <h3>1. Submit Board Documentation</h3>
-                            <p>Start with the board docs you already have: datasheets, register descriptions, memory
-                                maps, and interface requirements.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 2: Ingestion -->
-                    <div class="process-step">
-                        <div class="process-icon icon major">
-                            <i class="fa-solid fa-microchip"></i>
-                        </div>
-                        <div class="process-content">
-                            <h3>2. Foundry Synthesizes a Target</h3>
-                            <p>The LabWired Foundry ingests the hardware description, extracts the simulation-relevant
-                                structure, and prepares a new board or peripheral target for verification.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 3: Digital Twin -->
-                    <div class="process-step">
-                        <div class="process-icon icon major">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <div class="process-content">
-                            <h3>3. Verify and Export Artifacts</h3>
-                            <p>Foundry runs hosted verification, produces artifacts and run results, and exports the
-                                generated target so it can move into your local toolchain and CI workflow.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 4: Debugging -->
-                    <div class="process-step">
-                        <div class="process-icon icon major">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-                        <div class="process-content">
-                            <h3>4. Run Locally and Debug Deterministically</h3>
-                            <p>Use the exported target with the open LabWired runtime to run firmware locally, collect
-                                deterministic artifacts, and debug the resulting system behavior in your normal tools.</p>
-
-                            <!-- VS Code Mockup -->
-                            <div class="vscode-window">
-                                <div class="vscode-header">
-                                    <div class="vscode-dot dot-red"></div>
-                                    <div class="vscode-dot dot-yellow"></div>
-                                    <div class="vscode-dot dot-green"></div>
-                                </div>
-                                <div class="vscode-body">
-                                    <span class="code-line"><span class="comment">// Run generated target in local
-                                            CI...</span></span>
-                                    <span class="code-line"><span class="kw">labwired</span> test <span
-                                            class="str">--script examples/ci/uart-ok.yaml</span></span>
-                                    <span class="code-line"><span class="comment">// Collect deterministic
-                                            artifacts...</span></span>
-                                    <span class="code-line"><span class="kw">cat</span> <span
-                                            class="str">out/artifacts/result.json</span></span>
-                                    <span class="code-line"><span class="fn">assert_eq!</span>(result.status, <span
-                                            class="str">"pass"</span>);</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-        <!-- Four -->
-        <section id="four" class="wrapper style1 special fade-up">
-            <div class="container">
-                <header class="major">
-                    <h2>Accelerate Firmware Development</h2>
-                    <p>Move firmware validation out of the lab and into repeatable developer workflows.</p>
-                </header>
-                <div class="box alt">
-                    <div class="row gtr-uniform">
-                        <section class="col-4 col-6-medium col-12-xsmall">
-                            <span class="icon solid alt major fa-file-import"></span>
-                            <h3>Instant Digital Twins</h3>
-                            <p>Generate operational peripheral simulations directly from datasheets.</p>
-                        </section>
-                        <section class="col-4 col-6-medium col-12-xsmall">
-                            <span class="icon solid alt major fa-check-circle"></span>
-                            <h3>Hardware in CI/CD</h3>
-                            <p>Run full firmware validation suites on every commit without physical boards.</p>
-                        </section>
-                        <section class="col-4 col-6-medium col-12-xsmall">
-                            <span class="icon solid alt major fa-cogs"></span>
-                            <h3>Run Any Binary</h3>
-                            <p>Validate production executables (C, C++, Rust) against bit-accurate logic.</p>
-                        </section>
-                    </div>
-                </div>
-                <footer class="major">
-                    <ul class="actions special">
-                        <li><a href="docs.html" class="button primary">Read Docs</a></li>
-                        <li><a href="https://cal.com/andriishylenko/30min" target="_blank" class="button">Book Demo</a>
-                        </li>
-                    </ul>
-                </footer>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <!-- COMPONENT: footer -->
-<footer id="footer" data-nosnippet>
-    <ul class="icons">
-        <li><a href="https://github.com/w1ne/labwired-core" class="icon brands alt fa-github"><span
-                    class="label">GitHub</span></a></li>
-        <li><a href="mailto:andrii@shylenko.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a>
-        </li>
-    </ul>
-    <ul class="copyright">
-        <li>&copy; LabWired Inc. All rights reserved.</li>
-        <li><a href="https://labwired.com">LabWired.com</a></li>
-        <li><a href="https://docs.labwired.com">Technical Docs</a></li>
-    </ul>
-</footer>
-<!-- END COMPONENT: footer -->
-
+<section class="hero">
+  <div class="container">
+    <div class="kicker">
+      <span class="kicker-dot"></span>
+      Open source · cycle-accurate · in your browser
+    </div>
+    <h1 class="hero-h1">
+      Deterministic embedded firmware simulation.<br />
+      <span class="hero-accent">No hardware needed.</span>
+    </h1>
+    <p class="hero-sub">
+      Cycle-accurate firmware running in your browser — across STM32, RP2040, ESP32, nRF52,
+      and more. Run real binaries, wire components, replay every bug bit-for-bit.
+      Free playground. Drop-in GitHub Action for your CI.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://foundry.labwired.com/playground/" class="cta-primary">Open the Playground →</a>
+      <a href="https://foundry.labwired.com/playground/ci.html" class="cta-secondary">For Teams &amp; CI</a>
     </div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <div class="hero-platforms">
+      <span class="hero-platforms-label">Supported architectures</span>
+      <span class="platform-pill">ARM Cortex-M0+</span>
+      <span class="platform-pill">Cortex-M3</span>
+      <span class="platform-pill">Cortex-M4 / M4F</span>
+      <span class="platform-pill">Cortex-M33</span>
+      <span class="platform-pill">RISC-V</span>
+      <span class="platform-pill">Xtensa LX7</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg">
+  <div class="container">
+    <div class="section-kicker">Why developers switch</div>
+    <h2 class="section-h2">Why LabWired.</h2>
+    <div class="cards-3">
+      <article class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Deterministic</h3>
+        <p>
+          Same firmware, same cycle-exact result every run. No cable jitter, no power noise,
+          no "ghost bugs" that vanish under the logic analyzer. Race conditions reproduce in CI.
+        </p>
+      </article>
+      <article class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Parallel &amp; cheap</h3>
+        <p>
+          ~6,000× wall-clock speedup. A 30-minute regression suite runs in seconds. Spawn 50
+          concurrent jobs across variants. No queueing for the one rig in the lab.
+        </p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🔬</div>
+        <h3>Observable</h3>
+        <p>
+          Every run produces JSON result + VCD trace + UART log + cycle-by-cycle PC history.
+          Attach to bug reports. Diff traces between commits to find regressions instantly.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-kicker">Featured labs · zero install</div>
+    <h2 class="section-h2">Real firmware. Real silicon parity. One click.</h2>
+    <p class="section-sub">
+      Each lab is a cycle-accurate firmware running in your browser. See the PC counter,
+      live cycles, and UART output as it executes — across multiple chip families.
+    </p>
+
+    <div class="lab-chips">
+      <a href="https://foundry.labwired.com/playground/?lab=stm32f103-blinky" class="chip">⚡ Blinky</a>
+      <a href="https://foundry.labwired.com/playground/?lab=adxl345-sensor-lab" class="chip">📊 ADXL345 Tilt</a>
+      <a href="https://foundry.labwired.com/playground/?lab=mpu6050-sensor-lab" class="chip">🧭 MPU6050 IMU</a>
+      <a href="https://foundry.labwired.com/playground/?lab=bme280-weather-lab" class="chip">🌡 BME280 Weather</a>
+      <a href="https://foundry.labwired.com/playground/?lab=ssd1306-hello-lab" class="chip">📺 OLED Hello</a>
+      <a href="https://foundry.labwired.com/playground/?lab=max31855-thermocouple-lab" class="chip">🔥 MAX31855</a>
+      <a href="https://foundry.labwired.com/playground/?lab=neo6m-gps-lab" class="chip">📡 NEO-6M GPS</a>
+      <a href="https://foundry.labwired.com/playground/?lab=ntc-thermistor-lab" class="chip">🌡️ NTC Thermistor</a>
+      <a href="https://foundry.labwired.com/playground/?lab=ili9341-tft-lab" class="chip">🎨 TFT Color</a>
+      <a href="https://foundry.labwired.com/playground/?lab=nucleo-f401re" class="chip">🔵 Nucleo F4</a>
+    </div>
+
+    <div class="byo-card">
+      <div>
+        <h3>Bring your own firmware</h3>
+        <p>
+          Compile locally with your existing toolchain. Drop your <code>.elf</code> /
+          <code>.bin</code> / <code>.hex</code> into the playground via the Upload button.
+          Works across every supported SoC family — STM32, RP2040, ESP32, nRF52, and more.
+        </p>
+      </div>
+      <a href="https://foundry.labwired.com/playground/" class="cta-secondary">Open playground →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg">
+  <div class="container">
+    <div class="section-kicker">How it works</div>
+    <h2 class="section-h2">From your ELF to a running simulation in seconds.</h2>
+
+    <ol class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div>
+          <h3>Pick a board or drop your ELF</h3>
+          <p>Choose from 10 starter labs, or upload your own compiled firmware. The simulator
+            loads the matching chip + system YAML.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>
+          <h3>Wire components on the canvas</h3>
+          <p>Drag I²C / SPI / UART / Analog devices from the palette. Every wire connects to a
+            real, register-level peripheral model in our Rust core.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>
+          <h3>Run with cycle-exact reproducibility</h3>
+          <p>Watch the program counter, live cycles, UART log. Every byte is deterministic —
+            re-run produces the exact same trace.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container ci-row">
+    <div>
+      <div class="section-kicker">For embedded teams</div>
+      <h2 class="section-h2 left">Replace your HIL bench.</h2>
+      <p class="section-sub left">
+        Drop the GitHub Action into any repo. Get JSON + JUnit artifacts for every commit.
+        Run unlimited parallel jobs across hardware variants. No rigs, no cables,
+        no flaky tests.
+      </p>
+      <a href="https://foundry.labwired.com/playground/ci.html" class="cta-primary">Explore LabWired CI →</a>
+    </div>
+    <pre class="snippet"><code>name: Firmware Regression
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cargo build --release \
+              --target thumbv7m-none-eabi
+      - uses: w1ne/labwired/.github/actions/labwired-test@main
+        with:
+          script: tests/regression.yaml</code></pre>
+  </div>
+</section>
+
+<section class="section section-bg">
+  <div class="container os-row">
+    <div>
+      <div class="section-kicker">Open core</div>
+      <h2 class="section-h2 left">Built on an open simulator engine.</h2>
+      <p class="section-sub left">
+        The Rust simulation core is open source. ARM Cortex-M0+ / M3 / M4 / M33 + RISC-V + Xtensa LX7.
+        Peripheral models for I²C, SPI, UART, ADC, NVIC, DMA. VS Code extension, GDB / DAP server,
+        VCD trace export. Fork it, study it, contribute back.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://github.com/w1ne/labwired" target="_blank" rel="noopener noreferrer" class="cta-primary">View on GitHub →</a>
+        <a href="https://foundry.labwired.com/playground/library.html" class="cta-secondary">Browse the library</a>
+      </div>
+    </div>
+    <div class="os-stats">
+      <div class="os-stat">
+        <div class="os-stat-value">Rust</div>
+        <div class="os-stat-label">cycle-accurate core engine</div>
+      </div>
+      <div class="os-stat">
+        <div class="os-stat-value">M0+ · M3 · M4 · M33</div>
+        <div class="os-stat-label">+ RISC-V · Xtensa LX7</div>
+      </div>
+      <div class="os-stat">
+        <div class="os-stat-value">DAP · GDB · VCD</div>
+        <div class="os-stat-label">standard debug interfaces</div>
+      </div>
+      <div class="os-stat">
+        <div class="os-stat-value">MIT</div>
+        <div class="os-stat-label">licensed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section final-cta">
+  <div class="container">
+    <h2>Start running real firmware in your browser.</h2>
+    <div class="hero-ctas centered">
+      <a href="https://foundry.labwired.com/playground/" class="cta-primary big">Open the Playground →</a>
+      <a href="https://foundry.labwired.com/playground/ci.html" class="cta-secondary big">For Teams &amp; CI</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-row">
+    <div class="footer-brand">
+      <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true">
+        <path d="M11 2 4 12h4l-1 6 8-10h-4l1-6z" fill="currentColor" />
+      </svg>
+      <span>LabWired · Deterministic firmware simulation</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://foundry.labwired.com/playground/">Playground</a>
+      <a href="https://foundry.labwired.com/playground/library.html">Library</a>
+      <a href="https://foundry.labwired.com/playground/ci.html">For CI</a>
+      <a href="https://github.com/w1ne/labwired" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="mailto:andrii@shylenko.com">Contact</a>
+    </div>
+  </div>
+</footer>
 
 </body>
-
 </html>
