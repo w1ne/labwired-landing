@@ -168,8 +168,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: radial-gradient(var(--lw-black) 1px, transparent 1px);
-    background-size: 40px 40px;
+    /* Subtle texture, dialed back from full-opacity black 1px / 40px to a faint grid */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.10) 1px, transparent 1px);
+    background-size: 56px 56px;
     background-attachment: fixed;
 }
 
